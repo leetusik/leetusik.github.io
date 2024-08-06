@@ -1,15 +1,60 @@
 baseURL = 'https://leetusik.github.io/'
 languageCode = 'ko-KR'
 title = '이투식'
+paginate = "5" # Number of posts per page
 
 theme="mainroad"
 
 [Author]
   name = "이투식"
-  bio = "이투식입니다. 이것저것 기록합니다."
+  bio = "이투식입니다. 이런 저런 투자를 합니다."
   avatar = "img/avatar.png"
 
-  [Params.logo]
-  image = "img/leetusik_black.png" # Logo image. Path relative to "static"
-  title = "이투식" # Logo title, otherwise will use site title
-  subtitle = "이런 투자 방식" # Logo subtitle
+[Params]
+    readmore = false # Show "Read more" button in list if true
+    authorbox = true # Show authorbox at bottom of pages if true
+    toc = true # Enable Table of Contents
+    pager = true # Show pager navigation (prev/next links) at the bottom of pages if true
+    post_meta = ["author", "date", "categories", "translations"] # Order of post meta information
+    mainSections = ["post", "blog", "news"] # Specify section pages to show on home page and the "Recent articles" widget
+    dateformat = "2006-01-02" # Change the format of dates
+    mathjax = true # Enable MathJax
+    mathjaxPath = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js" # Specify MathJax path
+    mathjaxConfig = "TeX-AMS-MML_HTMLorMML" # Specify MathJax config
+    googleFontsLink = "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" 
+
+[Params.logo]
+    image = "img/leetusik_black.png" # Logo image. Path relative to "static"
+    title = "이투식" # Logo title, otherwise will use site title
+    subtitle = "이런 투자 방식" # Logo subtitle
+
+[Params.style.vars]
+  highlightColor = "#e22d30" # Override highlight color
+
+  # Override font-family sets
+  # Take care of different quotes OR escaping symbols in these params if necessary
+  fontFamilyPrimary = "'Open Sans', Helvetica, Arial, sans-serif"
+  # Secondary font-family set responsible for pre, code, kbd, and samp tags font
+  fontFamilySecondary = "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace"
+
+[Params.thumbnail]
+  visibility = ["list", "post"] # Control thumbnail visibility
+
+[Params.sidebar]
+  home = "right" # Configure layout for home page
+  list = "right"  # Configure layout for list pages
+  single = "right" # Configure layout for single pages
+  # Enable widgets in given order
+  widgets = ["recent", "categories", "taglist", "social", "languages"]
+
+[Params.widgets]
+  recent_num = 5 # Set the number of articles in the "Recent articles" widget
+  categories_counter = true # Enable counter for each category in "Categories" widget
+  tags_counter = false # Enable counter for each tag in "Tags" widget
+
+[Params.widgets.social]
+  cached = false # activate cache if true
+  # Enable parts of social widget
+  instagram = "leetusik"
+  github = "leetusik"
+  email = "leetusik@gmail.com"
