@@ -1,0 +1,17 @@
+<div>
+  <button onclick="toggleCodeBlock()">Toggle Code</button>
+  <pre id="code-block" style="display: none"><code>
+      {{ .Inner | safeHTML }}
+    </code></pre>
+</div>
+
+<script>
+  function toggleCodeBlock() {
+    var x = document.getElementById("code-block");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+</script>

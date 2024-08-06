@@ -1,33 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>이투식</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on 이투식</description>
+    <title>Indie Hacker on 이투식</title>
+    <link>http://localhost:1313/tags/indie-hacker/</link>
+    <description>Recent content in Indie Hacker on 이투식</description>
     <generator>Hugo</generator>
     <language>ko-KR</language>
     <lastBuildDate>Wed, 07 Aug 2024 05:31:40 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/indie-hacker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CoupangTV[1] - 프로젝트 구조 설계</title>
       <link>http://localhost:1313/posts/services/coupangman/coupangman1/</link>
       <pubDate>Wed, 07 Aug 2024 05:31:40 +0900</pubDate>
       <guid>http://localhost:1313/posts/services/coupangman/coupangman1/</guid>
       <description>&lt;p&gt;이 프로젝트는 쿠팡에서 판매하는 TV 정보를 수집하여 리스트를 제공한다. 매일 업데이트하여 쿠팡에서는 제공하지 않는 과거 가격과 정리된 TV 제품 스펙을 제공한다. 또한 다양한 필터를 활용하여 소비자는 원하는 TV를 추릴 수 있다.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>About</title>
-      <link>http://localhost:1313/about/</link>
-      <pubDate>Tue, 06 Aug 2024 14:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/about/</guid>
-      <description>안녕하세요. 이런 투자 방식, 이투식입니다.&#xA;본명 : 이수강 학적 : 홍익대학교 경영대학 졸업 </description>
-    </item>
-    <item>
-      <title>코인자동매매[1] - 자료조사</title>
-      <link>http://localhost:1313/posts/autocoin1/</link>
-      <pubDate>Tue, 06 Aug 2024 17:27:39 +0900</pubDate>
-      <guid>http://localhost:1313/posts/autocoin1/</guid>
-      <description>kimchi</description>
     </item>
   </channel>
 </rss>
