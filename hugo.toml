@@ -1,7 +1,6 @@
 baseURL = 'https://leetusik.github.io/'
 languageCode = 'ko-KR'
 title = '이투식'
-pagination = "5"
 
 theme="mainroad"
 
