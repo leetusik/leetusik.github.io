@@ -1,4 +1,16 @@
 baseURL = 'https://leetusik.github.io/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+languageCode = 'ko-KR'
+title = '이투식'
+pagination = "5"
+
 theme="mainroad"
+
+[Author]
+  name = "이투식"
+  bio = "이투식입니다. 이것저것 기록합니다."
+  avatar = "img/avatar.png"
+
+  [Params.logo]
+  image = "img/leetusik_black.png" # Logo image. Path relative to "static"
+  title = "이투식" # Logo title, otherwise will use site title
+  subtitle = "이런 투자 방식" # Logo subtitle
