@@ -6,21 +6,14 @@
     <description>Recent content in Posts on 이투식</description>
     <generator>Hugo</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Tue, 06 Aug 2024 14:59:46 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 06 Aug 2024 17:27:39 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Second</title>
-      <link>http://localhost:1313/posts/second/</link>
-      <pubDate>Tue, 06 Aug 2024 14:59:46 +0900</pubDate>
-      <guid>http://localhost:1313/posts/second/</guid>
-      <description>annd this is second buddy.</description>
-    </item>
-    <item>
-      <title>First</title>
-      <link>http://localhost:1313/posts/first/</link>
-      <pubDate>Tue, 06 Aug 2024 13:30:31 +0900</pubDate>
-      <guid>http://localhost:1313/posts/first/</guid>
-      <description>kimchi is what you #need!</description>
+      <title>코인자동매매(1 - 자료조사)</title>
+      <link>http://localhost:1313/posts/autocoin1/</link>
+      <pubDate>Tue, 06 Aug 2024 17:27:39 +0900</pubDate>
+      <guid>http://localhost:1313/posts/autocoin1/</guid>
+      <description>kimchi</description>
     </item>
   </channel>
 </rss>
