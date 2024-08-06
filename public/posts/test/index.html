@@ -3,7 +3,7 @@
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Second - 이투식</title>
+	<title>Test - 이투식</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,9 +38,23 @@
 	</button>
 	<ul class="menu__list">
 		<li class="menu__item">
+			<a class="menu__link" href="/categories/category-1/">
+				
+				<span class="menu__text">Category 1</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
 			<a class="menu__link" href="/about/">
 				
-				<span class="menu__text">ABOUT</span>
+				<span class="menu__text">About</span>
+				
+			</a>
+		</li>
+		<li class="menu__item menu__item--active">
+			<a class="menu__link" href="/posts/test/">
+				
+				<span class="menu__text">Test</span>
 				
 			</a>
 		</li>
@@ -55,17 +69,52 @@
 <main class="main" role="main">
 	<article class="post">
 		<header class="post__header">
-			<h1 class="post__title">Second</h1>
+			<h1 class="post__title">Test</h1>
 			<div class="post__meta meta"><div class="meta__item-author meta__item">
 	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 16 16"><path d="M8 1c2 0 3.5 2 3.5 4.5S10 9 10 9c3 1 4 2 4 6H2c0-4 1-5 4-6 0 0-1.5-1-1.5-3.5S6 1 8 1"/></svg><span class="meta__text">이투식</span>
 </div>
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2024-08-06T14:59:46&#43;09:00">2024-08-06</time></div></div>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2024-08-06T15:50:10&#43;09:00">2024-08-06</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/category-1/" rel="category">Category 1</a>
+	</span>
+</div></div>
 		</header>
 		<div class="content post__content clearfix">
-			<p>annd this is second buddy.</p>
-
+			<p>The main purpose of this article is to make sure that all basic HTML Elements are decorated with CSS so as to not miss any possible elements when creating new themes for Hugo.</p>
+<h2 id="headings">Headings</h2>
+<p>Let&rsquo;s start with all possible headings. The HTML <code>&lt;h1&gt;</code>—<code>&lt;h6&gt;</code> elements represent six levels of section headings. <code>&lt;h1&gt;</code> is the highest section level and <code>&lt;h6&gt;</code> is the lowest.</p>
+<h1 id="heading-1">Heading 1</h1>
+<h2 id="heading-2">Heading 2</h2>
+<h3 id="heading-3">Heading 3</h3>
+<h4 id="heading-4">Heading 4</h4>
+<h5 id="heading-5">Heading 5</h5>
+<h6 id="heading-6">Heading 6</h6>
+<hr>
+<h2 id="paragraph">Paragraph</h2>
+<p>According to the <a href="https://www.w3.org/TR/html5/dom.html#elements">HTML5 specification</a> by <a href="https://www.w3.org/">W3C</a>, <strong>HTML documents consist of a tree of elements and text</strong>. Each element is denoted in the source by a <a href="https://www.w3.org/TR/html5/syntax.html#syntax-start-tags">start tag</a>, such as <code>&lt;body&gt;</code>, and an <a href="https://www.w3.org/TR/html5/syntax.html#syntax-end-tags">end tag</a>, such as <code>&lt;/body&gt;</code>. (<em>Certain start tags and end tags can in certain cases be omitted and are implied by other tags.</em>)</p>
+<p>Elements can have attributes, which control how the elements work. For example, hyperlink are formed using the <code>a</code> element and its <code>href</code> attribute.</p>
+<h2 id="list-types">List Types</h2>
+<h3 id="ordered-list">Ordered List</h3>
+<ol>
+<li>First item</li>
+<li>Second item</li>
+<li>Third item</li>
+</ol>
+<h3 id="unordered-list">Unordered List</h3>
 		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/tag1/" rel="tag">tag1</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/tag2/" rel="tag">tag2</a>
+		</li>
+	</ul>
+</div>
+		</footer>
 	</article>
 </main>
 
@@ -77,15 +126,15 @@
 		<span class="authorbox__name">About 이투식</span>
 	</div>
 	<div class="authorbox__description">
-		이런 투자 방식, 이투식입니다.
+		이투식입니다. 이런 저런 투자를 합니다.
 	</div>
 </div>
 
 <nav class="pager flex">
 	<div class="pager__item pager__item--prev">
-		<a class="pager__link" href="/posts/first/" rel="prev">
+		<a class="pager__link" href="/posts/second/" rel="prev">
 			<span class="pager__subtitle">«&thinsp;Previous</span>
-			<p class="pager__title">First</p>
+			<p class="pager__title">Second</p>
 		</a>
 	</div>
 </nav>
@@ -97,9 +146,28 @@
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/posts/test/">Test</a></li>
 			<li class="widget__item"><a class="widget__link" href="/posts/second/">Second</a></li>
 			<li class="widget__item"><a class="widget__link" href="/posts/first/">First</a></li>
 		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/category-1/">Category 1</a>&nbsp;
+				<span class="widget__counter widget__counter--bubble">1</span>
+				</li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/tag1/" title="Tag1">Tag1</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/tag2/" title="Tag2">Tag2</a>
 	</div>
 </div>
 <div class="widget-social widget">

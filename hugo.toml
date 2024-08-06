@@ -7,13 +7,13 @@ theme="mainroad"
 
 [Author]
   name = "이투식"
-  bio = "이투식입니다. 이런 저런 투자를 합니다."
-  avatar = "img/avatar.png"
+  bio = "이런 투자 방식, 이투식입니다."
+  avatar = "img/leetusik_black.png"
 
 [Params]
     readmore = false # Show "Read more" button in list if true
     authorbox = true # Show authorbox at bottom of pages if true
-    toc = true # Enable Table of Contents
+    toc = false # Enable Table of Contents
     pager = true # Show pager navigation (prev/next links) at the bottom of pages if true
     post_meta = ["author", "date", "categories", "translations"] # Order of post meta information
     mainSections = ["posts", "blog", "news"] # Specify section pages to show on home page and the "Recent articles" widget
@@ -58,3 +58,10 @@ theme="mainroad"
   instagram = "leetusik"
   github = "leetusik"
   email = "leetusik@gmail.com"
+
+[menu]
+  [[menu.main]]
+    name = "ABOUT"
+    identifier = "about"
+    url = "/about/"
+    weight = 2
