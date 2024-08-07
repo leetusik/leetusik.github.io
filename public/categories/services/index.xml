@@ -9,14 +9,14 @@
     <lastBuildDate>Wed, 07 Aug 2024 06:51:55 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/services/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>CoupangTV[2] - 백엔드</title>
+      <title>coupang TV[2] - 백엔드</title>
       <link>http://localhost:1313/posts/services/coupangman/coupangman2/</link>
       <pubDate>Wed, 07 Aug 2024 06:51:55 +0900</pubDate>
       <guid>http://localhost:1313/posts/services/coupangman/coupangman2/</guid>
-      <description></description>
+      <description>&lt;p&gt;이번 글에서는 프로젝트 백엔드 부분을 소개한다. 스크래핑 기능, 데이터베이스 모델을 중점적으로 다룬다.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>CoupangTV[1] - 프로젝트 구조 설계</title>
+      <title>coupang TV[1] - 프로젝트 구조 설계</title>
       <link>http://localhost:1313/posts/services/coupangman/coupangman1/</link>
       <pubDate>Wed, 07 Aug 2024 05:31:40 +0900</pubDate>
       <guid>http://localhost:1313/posts/services/coupangman/coupangman1/</guid>

@@ -6,10 +6,17 @@
     <description>Recent content on 이투식</description>
     <generator>Hugo</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Wed, 07 Aug 2024 05:31:40 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 07 Aug 2024 06:51:55 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>CoupangTV[1] - 프로젝트 구조 설계</title>
+      <title>coupang TV[2] - 백엔드</title>
+      <link>http://localhost:1313/posts/services/coupangman/coupangman2/</link>
+      <pubDate>Wed, 07 Aug 2024 06:51:55 +0900</pubDate>
+      <guid>http://localhost:1313/posts/services/coupangman/coupangman2/</guid>
+      <description>&lt;p&gt;이번 글에서는 프로젝트 백엔드 부분을 소개한다. 스크래핑 기능, 데이터베이스 모델을 중점적으로 다룬다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>coupang TV[1] - 프로젝트 구조 설계</title>
       <link>http://localhost:1313/posts/services/coupangman/coupangman1/</link>
       <pubDate>Wed, 07 Aug 2024 05:31:40 +0900</pubDate>
       <guid>http://localhost:1313/posts/services/coupangman/coupangman1/</guid>
@@ -20,14 +27,7 @@
       <link>http://localhost:1313/about/</link>
       <pubDate>Tue, 06 Aug 2024 14:00:00 +0000</pubDate>
       <guid>http://localhost:1313/about/</guid>
-      <description>안녕하세요. 이런 투자 방식, 이투식입니다.&#xA;본명 : 이수강 학적 : 홍익대학교 경영대학 졸업 </description>
-    </item>
-    <item>
-      <title>코인자동매매[1] - 자료조사</title>
-      <link>http://localhost:1313/posts/autocoin1/</link>
-      <pubDate>Tue, 06 Aug 2024 17:27:39 +0900</pubDate>
-      <guid>http://localhost:1313/posts/autocoin1/</guid>
-      <description>kimchi</description>
+      <description>&lt;p&gt;안녕하세요. 이런 투자 방식, 이투식입니다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -6,27 +6,34 @@
     <description>Recent content in Tags on 이투식</description>
     <generator>Hugo</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Wed, 07 Aug 2024 05:31:40 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 07 Aug 2024 06:51:55 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Backend</title>
+      <link>http://localhost:1313/tags/backend/</link>
+      <pubDate>Wed, 07 Aug 2024 06:51:55 +0900</pubDate>
+      <guid>http://localhost:1313/tags/backend/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Coupang Tv</title>
+      <link>http://localhost:1313/tags/coupang-tv/</link>
+      <pubDate>Wed, 07 Aug 2024 06:51:55 +0900</pubDate>
+      <guid>http://localhost:1313/tags/coupang-tv/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Flask</title>
+      <link>http://localhost:1313/tags/flask/</link>
+      <pubDate>Wed, 07 Aug 2024 06:51:55 +0900</pubDate>
+      <guid>http://localhost:1313/tags/flask/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Indie Hacker</title>
       <link>http://localhost:1313/tags/indie-hacker/</link>
-      <pubDate>Wed, 07 Aug 2024 05:31:40 +0900</pubDate>
+      <pubDate>Wed, 07 Aug 2024 06:51:55 +0900</pubDate>
       <guid>http://localhost:1313/tags/indie-hacker/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Coin</title>
-      <link>http://localhost:1313/tags/coin/</link>
-      <pubDate>Tue, 06 Aug 2024 17:27:39 +0900</pubDate>
-      <guid>http://localhost:1313/tags/coin/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Research</title>
-      <link>http://localhost:1313/tags/research/</link>
-      <pubDate>Tue, 06 Aug 2024 17:27:39 +0900</pubDate>
-      <guid>http://localhost:1313/tags/research/</guid>
       <description></description>
     </item>
   </channel>

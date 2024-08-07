@@ -3,7 +3,7 @@
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Categories - 이투식</title>
+	<title>coupang TV[1] - 프로젝트 구조 설계 - 이투식</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,6 @@
 
 	<link rel="stylesheet" href="/css/style.css">
 	
-	<link rel="alternate" type="application/rss+xml" href="/categories/index.xml" title="이투식">
 
 	<link rel="shortcut icon" href="/favicon.ico">
 </head>
@@ -53,37 +52,109 @@
 		<div class="wrapper flex">
 			<div class="primary">
 			
-<main class="main list" role="main">
-	<header class="main__header">
-		<h1 class="main__title">Categories</h1>
-	</header><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/categories/services/" rel="bookmark">
-			Services
-			</a>
-		</h2>
-		<div class="list__meta meta">
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">coupang TV[1] - 프로젝트 구조 설계</h1>
+			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2024-08-07T06:51:55&#43;09:00">2024-08-07</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		
-	</div>
-</article>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2024-08-07T05:31:40&#43;09:00">2024-08-07</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/services/" rel="category">Services</a>
+	</span>
+</div></div>
+		</header>
+		<div class="content post__content clearfix">
+			<p>이 프로젝트는 쿠팡에서 판매하는 TV 정보를 수집하여 리스트를 제공한다. 매일 업데이트하여 쿠팡에서는 제공하지 않는 과거 가격과 정리된 TV 제품 스펙을 제공한다. 또한 다양한 필터를 활용하여 소비자는 원하는 TV를 추릴 수 있다.</p>
+<p>쿠팡에서 TV 리스트를 수집하고 다시 제공할 때, 쿠팡 파트너스 링크를 활용하여 수수료 수익을 창출한다.</p>
+<h2 id="프로젝트-레이아웃">프로젝트 레이아웃</h2>
+<pre tabindex="0"><code class="language-code" data-lang="code">CoupangTV
+ ├─app
+ │  ├─models
+ │  │  ├─__init__.py
+ │  │  ├─models.py
+ │  │  └─update_or_create_product.py
+ │  ├─routes
+ │  │  ├─__init__.py
+ │  │  └─routes.py
+ │  ├─scrapers
+ │  │  ├─__init_.py
+ │  │  ├─scraper_basic.py
+ │  │  ├─scraper_feature.py
+ │  │  ├─scraper_url2.py
+ │  │  └─utils.py
+ │  ├─static
+ │  │  ├─css
+ │  │  │  └─style.css
+ │  │  ├─images
+ │  │  └─js
+ │  │     └─scripts.js
+ │  ├─templates
+ │  ├─__init__.py
+ │  ├─celery.py
+ │  ├─config.py
+ │  └─tasks.py
+ ├─instantce
+ │  └─yourdatabase.db
+ ├─celery_worker.py
+ ├─run.py
+ └─requrirements.txt
+</code></pre><h2 id="프로젝트-구현">프로젝트 구현</h2>
+<p>이 풀스택 프로젝트는 총 3가지 부분을 개발해야한다.</p>
+<ol>
+<li>백엔드(스크래핑)</li>
+<li>프론트엔드</li>
+<li>서버</li>
+</ol>
+<p>우선 스크래핑 기능을 개발하고, 스크래핑된 데이터를 바탕으로 웹을 로컬 환경에서 구축한다. 그리고 그걸 서버에 배포한다.
+이 프로젝트는 flask 기반으로 만들어졌기 때문에 백엔드, 프론트 엔드는 파이썬을 기반으로 구축한다.</p>
+<p>서버는 aws 등 클라우드 컴퓨팅 서비스를 활용할 수 있겠지만, 고정비용을 절약하고 서버 의존도를 줄이기 위해 프로젝트 초반에는 직접 안쓰는 노트북을 활용해서 서버를 구축한다.</p>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/indie-hacker/" rel="tag">indie hacker</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/coupang-tv/" rel="tag">coupang tv</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
 </main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="이투식 avatar" src="/img/leetusik_black.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">About 이투식</span>
+	</div>
+	<div class="authorbox__description">
+		이런 투자 방식, 이투식입니다.
+	</div>
+</div>
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/posts/posts/coupang-tv2-%EB%B0%B1%EC%97%94%EB%93%9C/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">coupang TV[2] - 백엔드</p>
+		</a>
+	</div>
+</nav>
 
 
 			</div>
-			
-<aside class="sidebar">
+			<aside class="sidebar">
 <div class="widget-recent widget">
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
-			<li class="widget__item"><a class="widget__link" href="/posts/services/coupangman/coupangman2/">coupang TV[2] - 백엔드</a></li>
-			<li class="widget__item"><a class="widget__link" href="/posts/services/coupangman/coupangman1/">coupang TV[1] - 프로젝트 구조 설계</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/posts/coupang-tv2-%EB%B0%B1%EC%97%94%EB%93%9C/">coupang TV[2] - 백엔드</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/posts/coupang-tv1-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B5%AC%EC%A1%B0-%EC%84%A4%EA%B3%84/">coupang TV[1] - 프로젝트 구조 설계</a></li>
 		</ul>
 	</div>
 </div>
@@ -145,5 +216,7 @@
 </footer>
 	</div>
 <script async defer src="/js/menu.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
 </body>
 </html>
