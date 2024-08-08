@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Flask on 이투식</title>
-    <link>http://localhost:1313/tags/flask/</link>
-    <description>Recent content in Flask on 이투식</description>
+    <title>Jinja2 on 이투식</title>
+    <link>http://localhost:1313/tags/jinja2/</link>
+    <description>Recent content in Jinja2 on 이투식</description>
     <generator>Hugo</generator>
     <language>ko-KR</language>
     <lastBuildDate>Thu, 08 Aug 2024 11:07:37 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/flask/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/jinja2/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>coupang TV[3] - 프론트엔드</title>
       <link>http://localhost:1313/posts/services/coupangman/coupangman3/</link>
       <pubDate>Thu, 08 Aug 2024 11:07:37 +0900</pubDate>
       <guid>http://localhost:1313/posts/services/coupangman/coupangman3/</guid>
       <description>&lt;p&gt;이번 글에서는 프로젝트 프론트엔드 부분을 소개한다. html, css, js, 그리고 css 프레임워크로 pico css를 사용한다. 또한 flask application이기 때문에 jinja2를 활용한다.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>coupang TV[2] - 백엔드</title>
-      <link>http://localhost:1313/posts/services/coupangman/coupangman2/</link>
-      <pubDate>Wed, 07 Aug 2024 06:51:55 +0900</pubDate>
-      <guid>http://localhost:1313/posts/services/coupangman/coupangman2/</guid>
-      <description>&lt;p&gt;이번 글에서는 프로젝트 백엔드 부분을 소개한다. 스크래핑 기능, 데이터베이스 모델을 중점적으로 다룬다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

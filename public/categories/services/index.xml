@@ -6,8 +6,15 @@
     <description>Recent content in Services on 이투식</description>
     <generator>Hugo</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Wed, 07 Aug 2024 06:51:55 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 08 Aug 2024 11:07:37 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/services/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>coupang TV[3] - 프론트엔드</title>
+      <link>http://localhost:1313/posts/services/coupangman/coupangman3/</link>
+      <pubDate>Thu, 08 Aug 2024 11:07:37 +0900</pubDate>
+      <guid>http://localhost:1313/posts/services/coupangman/coupangman3/</guid>
+      <description>&lt;p&gt;이번 글에서는 프로젝트 프론트엔드 부분을 소개한다. html, css, js, 그리고 css 프레임워크로 pico css를 사용한다. 또한 flask application이기 때문에 jinja2를 활용한다.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>coupang TV[2] - 백엔드</title>
       <link>http://localhost:1313/posts/services/coupangman/coupangman2/</link>

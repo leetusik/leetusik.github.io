@@ -2,7 +2,7 @@
 title = 'coupang TV[2] - 백엔드'
 date = 2024-08-07T06:51:55+09:00
 categories = ["services"]
-tags = ["indie hacker", "flask", "coupang tv", "backend"]
+tags = ["flask", "coupang tv", "backend", "python"]
 toc = true
 +++
 
@@ -326,7 +326,7 @@ for cat in dic:
 
 ```
 
-우선 em tag의 '\'을 기준으로 스펙 사항을 분리한다. 그리고 불필요한 요소를 제거한 clean_spec_list를 만든다.
+우선 em tag의 '/'를 기준으로 스펙 사항을 분리한다. 그리고 불필요한 요소를 제거한 clean_spec_list를 만든다.
 그리고 스펙리스트 하나하나의 사항을 for 문을 통해 어떤 구분에 대한 스펙인지 분류하고, 데이터베이스에 저장하기위한 전 작업을한다.
 
 오직 다나와의 지저분한 정보를 수집하기위해 재활용 가능성이 낮은 코드를 작성했지만, 그래도 깨끗하지않은 정보를 나름대로 정리할 수 있었다.

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>coupang TV[3] - 프론트엔드 - 이투식</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo logo--mixed">
+		<a class="logo__link" href="/" title="이투식" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/leetusik_black.png">
+				</div><div class="logo__item logo__text">
+					<div class="logo__title">이투식</div>
+					<div class="logo__tagline">이런 투자 방식</div>
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menu</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/about/">
+				
+				<span class="menu__text">ABOUT</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">coupang TV[3] - 프론트엔드</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2024-08-08T11:07:37&#43;09:00">2024-08-08</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/services/" rel="category">Services</a>
+	</span>
+</div></div>
+		</header>
+		
+<div class="post__toc toc">
+	<div class="toc__title">Page content</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#홈페이지-소개">홈페이지 소개</a>
+      <ul>
+        <li><a href="#1-how-it-looks">1. How it looks</a></li>
+      </ul>
+    </li>
+    <li><a href="#flask-things">Flask Things</a>
+      <ul>
+        <li><a href="#1-routespy">1. routes.py</a></li>
+        <li><a href="#2-jinja2-funtions">2. Jinja2 Funtions</a></li>
+        <li><a href="#3-indexhtml">3. index.html</a></li>
+        <li><a href="#4-modelhtml">4. model.html</a></li>
+      </ul>
+    </li>
+    <li><a href="#static">Static</a></li>
+    <li><a href="#수정-필요-사항">수정 필요 사항</a></li>
+    <li><a href="#같은-주제-게시글-모음">같은 주제 게시글 모음</a></li>
+  </ul>
+</nav>
+	</div>
+</div><div class="content post__content clearfix">
+			<p>이번 글에서는 프로젝트 프론트엔드 부분을 소개한다. html, css, js, 그리고 css 프레임워크로 pico css를 사용한다. 또한 flask application이기 때문에 jinja2를 활용한다.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="홈페이지-소개">홈페이지 소개</h2>
+<p>우리집 노트북 서버로 홈페이지를 운영하고있다.</p>
+<blockquote>
+<p><a href="http://ggulmae.com/">http://ggulmae.com/</a></p>
+</blockquote>
+<h3 id="1-how-it-looks">1. How it looks</h3>
+<h4 id="11-메인-페이지">1.1 메인 페이지</h4>
+<div style="text-align: center">
+  <img src="mainpage.png" alt="메인 이미지" style="max-width: 100%;
+  height: auto;">
+  <div style="font-size: 0.9em; color: gray">메인 이미지</div>
+  <br />
+</div>
+
+<ol>
+<li>왼쪽의 <code>사이드바</code>에서 각종 <code>필터</code>를 적용할 수 있다.</li>
+<li><code>이름</code>에서 제품의 사진과 함께 간단한 제품의 스펙을 확인할 수 있다.</li>
+<li><code>가격</code>에서 제품의 할인되기 전 가격과 할인 후 가격, 할인율을 확인할 수 있다.</li>
+<li><code>리뷰</code>에서 리뷰 점수, 리뷰 수를 확인할 수 있다.</li>
+<li><code>주요</code> 특징에서 스마트, 게임 기능을 지원하는지, 스탠드 or 벽걸이 형인지, 설치는 어떻게 진행되는지, 제품 생산 연도를 알 수 있다.</li>
+</ol>
+<h4 id="12-상세-페이지">1.2 상세 페이지</h4>
+<p>제품 상세 페이지는 메인 페이지에서 제품의 <code>이름</code>부분을 클릭해서 접근할 수 있다.
+<div style="text-align: center">
+  <img src="detailpage.png" alt="제품 상세 페이지" style="max-width: 100%;
+  height: auto;">
+  <div style="font-size: 0.9em; color: gray">제품 상세 페이지</div>
+  <br />
+</div>
+</p>
+<ol>
+<li><code>왼쪽 상단</code>에서 제품의 이미지, 모델명, 현재 가격을 알 수 있다.</li>
+<li><code>오른쪽 상단</code>에서 제품의 지난 90일 가격 추이를 확인할 수 있다.</li>
+<li><code>나머지</code> 부분에서 제품의 기본 정보, 화질, 스피커, 스마트 기능, 게임 기능 등을 확인할 수 있다.</li>
+</ol>
+<hr>
+<h2 id="flask-things">Flask Things</h2>
+<h3 id="1-routespy">1. routes.py</h3>
+<p>routes.py에서 메인 페이지와 상세 페이지를 모두 관리한다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># routes.py 중 일부</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@main.route</span>(<span style="color:#e6db74">&#34;/&#34;</span>, methods<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;GET&#34;</span>])
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">index</span>():
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@main.route</span>(<span style="color:#e6db74">&#34;/model/&lt;int:id&gt;&#34;</span>, methods<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;GET&#34;</span>])
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">model</span>(id):
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">...</span>
+</span></span></code></pre></div><h4 id="11-mainroute-methodsget">1.1 @main.route(&quot;/&quot;, methods=[&ldquo;GET&rdquo;])</h4>
+<p>홈페이지에 사이드바에 필터 가능 제품 특징을 가져오기 위해 routes.py에서 필터 가능한 제품 특징을 리스트로 저장해서 index.html을 렌더링할 때 제공한다.</p>
+<p>지금 다시보니 매번 index.html을 보여줄 때마다 모든 특징을 가져오는 것은 비효율적으로 보인다. 매일 새로 업데이트할 때마다 한 번 하면 좋을 것 같다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># routes.py 중 일부</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sizes <span style="color:#f92672">=</span> get_screen_sizes()
+</span></span><span style="display:flex;"><span>panels <span style="color:#f92672">=</span> get_display_techs()
+</span></span><span style="display:flex;"><span>resolutions <span style="color:#f92672">=</span> get_resolutions()
+</span></span><span style="display:flex;"><span>brands <span style="color:#f92672">=</span> db<span style="color:#f92672">.</span>session<span style="color:#f92672">.</span>query(Product<span style="color:#f92672">.</span>brand)<span style="color:#f92672">.</span>distinct()<span style="color:#f92672">.</span>all()
+</span></span><span style="display:flex;"><span>brands <span style="color:#f92672">=</span> [brand[<span style="color:#ae81ff">0</span>] <span style="color:#66d9ef">for</span> brand <span style="color:#f92672">in</span> brands]  <span style="color:#75715e"># Unpack tuples</span>
+</span></span><span style="display:flex;"><span>release_years <span style="color:#f92672">=</span> get_release_years()
+</span></span></code></pre></div><p>다음은 <code>@main.route(&quot;/&quot;)</code>가 리턴하는 값이다.</p>
+<p>seleted_가 붙은 변수들은 사용자가 메인 페이지에서 필터를 사용했을 경우, <code>requests.args.get(&quot;somthing&quot;, &quot;&quot;)</code>함수로 받아온 선택된 필터 값이다. 이것을 활용해서 필터링된 값을 메인 페이지에서 제공한다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># routes.py 중 일부</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> render_template(
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;index.html&#34;</span>,
+</span></span><span style="display:flex;"><span>    products<span style="color:#f92672">=</span>products,
+</span></span><span style="display:flex;"><span>    brands<span style="color:#f92672">=</span>brands,
+</span></span><span style="display:flex;"><span>    selected_brands<span style="color:#f92672">=</span>selected_brands,
+</span></span><span style="display:flex;"><span>    sizes<span style="color:#f92672">=</span>sizes,
+</span></span><span style="display:flex;"><span>    selected_sizes<span style="color:#f92672">=</span>selected_sizes,
+</span></span><span style="display:flex;"><span>    resolutions<span style="color:#f92672">=</span>resolutions,
+</span></span><span style="display:flex;"><span>    selected_resolutions<span style="color:#f92672">=</span>selected_resolutions,
+</span></span><span style="display:flex;"><span>    panels<span style="color:#f92672">=</span>panels,
+</span></span><span style="display:flex;"><span>    selected_panels<span style="color:#f92672">=</span>selected_panels,
+</span></span><span style="display:flex;"><span>    selected_others<span style="color:#f92672">=</span>selected_others,
+</span></span><span style="display:flex;"><span>    release_years<span style="color:#f92672">=</span>release_years,
+</span></span><span style="display:flex;"><span>    selected_release_years<span style="color:#f92672">=</span>selected_release_years,
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>필터가 하나가 설정되면 다른 부분의 필터가 무시되는 에러가 있었는데, 챗지피티의 도움을 받아 다음과 같은 코드로 해결했다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># routes.py 중 일부</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sqlalchemy.orm <span style="color:#f92672">import</span> aliased
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Aliases for the Feature table to handle different filter criteria</span>
+</span></span><span style="display:flex;"><span>size_feature <span style="color:#f92672">=</span> aliased(Feature)
+</span></span><span style="display:flex;"><span>panel_feature <span style="color:#f92672">=</span> aliased(Feature)
+</span></span><span style="display:flex;"><span>resolution_feature <span style="color:#f92672">=</span> aliased(Feature)
+</span></span><span style="display:flex;"><span>release_year_feature <span style="color:#f92672">=</span> aliased(Feature)
+</span></span><span style="display:flex;"><span>smart_tv_feature <span style="color:#f92672">=</span> aliased(Feature)
+</span></span><span style="display:flex;"><span>game_mode_feature <span style="color:#f92672">=</span> aliased(Feature)
+</span></span></code></pre></div><h4 id="12-mainroutemodelltintidgt-methodsget">1.2 @main.route(&quot;/model/&lt;int:id&gt;&quot;, methods=[&ldquo;GET&rdquo;])</h4>
+<p><code>product_id</code>를 활용해서 제품과 제품의 특징을 가져오고, 마찬가지로 id를 활용해서 ProductLowestPriceHistory 데이터베이스에 접근해 dataframe 형식으로 제품의 과거 가격 값을 가져온 후 dictionary 형식으로 model.html을 호출할 때 리턴한다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#a6e22e">@main.route</span>(<span style="color:#e6db74">&#34;/model/&lt;int:id&gt;&#34;</span>, methods<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;GET&#34;</span>])
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">model</span>(id):
+</span></span><span style="display:flex;"><span>    product <span style="color:#f92672">=</span> Product<span style="color:#f92672">.</span>query<span style="color:#f92672">.</span>get_or_404(id)
+</span></span><span style="display:flex;"><span>    features <span style="color:#f92672">=</span> get_product_features(id)
+</span></span><span style="display:flex;"><span>    df <span style="color:#f92672">=</span> get_price_history(id)
+</span></span><span style="display:flex;"><span>    data <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;dates&#34;</span>: [(date <span style="color:#f92672">-</span> df<span style="color:#f92672">.</span>index[<span style="color:#ae81ff">0</span>])<span style="color:#f92672">.</span>days <span style="color:#66d9ef">for</span> date <span style="color:#f92672">in</span> df<span style="color:#f92672">.</span>index],
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;prices&#34;</span>: df[<span style="color:#e6db74">&#34;price&#34;</span>]<span style="color:#f92672">.</span>tolist(),
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> render_template(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;model.html&#34;</span>,
+</span></span><span style="display:flex;"><span>        product<span style="color:#f92672">=</span>product,
+</span></span><span style="display:flex;"><span>        features<span style="color:#f92672">=</span>features,
+</span></span><span style="display:flex;"><span>        price_history<span style="color:#f92672">=</span>data,
+</span></span><span style="display:flex;"><span>    )
+</span></span></code></pre></div><h3 id="2-jinja2-funtions">2. Jinja2 Funtions</h3>
+<p><code>__init__.py</code>의 <code>create_app</code>함수에 들어있는 진자 커스텀 필터를 소개한다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># __init__.py 중 일부</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Custom filter to strip leading and trailing whitespace</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">strip_filter</span>(value):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> isinstance(value, str):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> value<span style="color:#f92672">.</span>strip()<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#34;(&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#34;)&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> value
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Custom filter to truncate text</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">truncate_filter</span>(value, length<span style="color:#f92672">=</span><span style="color:#ae81ff">30</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> isinstance(value, str) <span style="color:#f92672">and</span> len(value) <span style="color:#f92672">&gt;</span> length:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> value[:length] <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;...&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> value
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Custom filter to match regex patterns</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">match_filter</span>(s, pattern):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> re<span style="color:#f92672">.</span><span style="color:#66d9ef">match</span>(pattern, s) <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Custom filter to add commas as thousands separators</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add_commas</span>(value):
+</span></span><span style="display:flex;"><span>        value <span style="color:#f92672">=</span> int(value)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> isinstance(value, (int, float)):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:,}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(value)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> value
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Register the custom filter with Jinja</span>
+</span></span><span style="display:flex;"><span>    app<span style="color:#f92672">.</span>jinja_env<span style="color:#f92672">.</span>filters[<span style="color:#e6db74">&#34;add_commas&#34;</span>] <span style="color:#f92672">=</span> add_commas
+</span></span><span style="display:flex;"><span>    app<span style="color:#f92672">.</span>jinja_env<span style="color:#f92672">.</span>filters[<span style="color:#e6db74">&#34;strip&#34;</span>] <span style="color:#f92672">=</span> strip_filter
+</span></span><span style="display:flex;"><span>    app<span style="color:#f92672">.</span>jinja_env<span style="color:#f92672">.</span>filters[<span style="color:#e6db74">&#34;truncate&#34;</span>] <span style="color:#f92672">=</span> truncate_filter
+</span></span><span style="display:flex;"><span>    app<span style="color:#f92672">.</span>jinja_env<span style="color:#f92672">.</span>filters[<span style="color:#e6db74">&#34;match&#34;</span>] <span style="color:#f92672">=</span> match_filter
+</span></span></code></pre></div><ul>
+<li><code>strip_filter</code>는 리뷰수가 (123개) 형식으로 데이터베이스에 저장되어서 ()를 지우기 위해 추가했다.</li>
+<li><code>truncate_filter</code>는 제품명이 메인 페이지에 표기될 때 길이를 30 이하로 유지시킨다.</li>
+<li><code>match_filter</code>는 <code>index.html</code> if문에서 regex로 특징을 선별하기 위해서 사용한다.</li>
+<li><code>add_commas</code>는 <code>model.html</code>에서 콤마 없이 숫자로만 저장되어있는 가격 데이터를 보기 좋게 변환하는데 사용한다.</li>
+</ul>
+<p>jinja2 function을 추가하면서 백엔드에서 데이터를 수집할 때 제대로 하면 굳이 새로운 function을 추가하지 않아도 괜찮겠다는 생각을 했고, 또 어떤 것은 js로, 어떤 것은 jinja2로 해결을 하니 헷갈리는 부분이 많아서 어려움이 있었다. 웬만하면 백엔드에서 수집할 때 확실하게 잘 하고, 부족한 부분은 js로 처리해야겠다는 생각을 했다.</p>
+<h3 id="3-indexhtml">3. index.html</h3>
+<p>flask 기능인 url_for을 활용하니 파일 위치에 따라 잘못 불러오거나 하는 문제가 발생하지 않아서 좋았다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- index.html 중 일부--&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ url_for(&#39;static&#39;, filename=&#39;css/style.css&#39;) }}&#34;</span>
+</span></span><span style="display:flex;"><span>/&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">form</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;GET&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ url_for(&#39;main.index&#39;) }}&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">onsubmit</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;concatenateAll()&#34;</span>
+</span></span><span style="display:flex;"><span>&gt;
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">form</span>&gt;
+</span></span></code></pre></div><h4 id="31-sidebar">3.1 sidebar</h4>
+<p><code>aside</code> 태그를 활용해서 메인 페이지 왼쪽에 사이드바를 만들었다. <code>aside</code> 태그 안에 <code>form</code>을 넣고, 그 안에 <code>fieldset</code>을 여러개 넣어서 여러 필터를 사용할 수 있게 만들었다. 다음은 필드셋 중 첫번째 브랜드의 필드셋이다.</p>
+<p><code>for 문</code>을 활용해서 모든 브랜드들에 대한 체크박스를 만들었고, 브랜드가 이미 url을 통해 <code>selected_brands</code>에 포함되어있는지 <code>if 문</code>을 통해 확인한 뒤, 이미 포함되었다면 체크박스에 체크를 한다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- index.html 중 일부--&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">fieldset</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">details</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">summary</span>&gt;브랜드&lt;/<span style="color:#f92672">summary</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">input</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;select-all-brand&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;checkbox&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">onclick</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;toggleSelectAllBrand(this)&#34;</span>
+</span></span><span style="display:flex;"><span>        /&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;select-all-brand&#34;</span>&gt;All&lt;/<span style="color:#f92672">label</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      {% for brand in brands %}
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;filter-container&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">input</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;brand-{{ loop.index }}&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">data-name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;brand&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;checkbox&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ brand }}&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#960050;background-color:#1e0010">{%</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">if</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">brand</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">in</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">selected_brands</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#960050;background-color:#1e0010">%}</span><span style="color:#a6e22e">checked</span><span style="color:#960050;background-color:#1e0010">{%</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">endif</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#960050;background-color:#1e0010">%}</span>
+</span></span><span style="display:flex;"><span>        /&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;brand-{{ loop.index }}&#34;</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ brand }}&#34;</span>
+</span></span><span style="display:flex;"><span>          &gt;{{ brand }}&lt;/<span style="color:#f92672">label</span>
+</span></span><span style="display:flex;"><span>        &gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      {% endfor %}
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">details</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">fieldset</span>&gt;
+</span></span></code></pre></div><h4 id="32-main-content-div">3.2 main-content div</h4>
+<p><code>thead</code>를 다음과 같이 구성하고 <code>for 문</code>을 통해 table item들을 추가했다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">thead</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">tr</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">th</span> <span style="color:#a6e22e">scope</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;product-name&#34;</span>&gt;이름&lt;/<span style="color:#f92672">th</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">th</span> <span style="color:#a6e22e">scope</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;price-header&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sortable&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      가격 &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;price-sort-icon&#34;</span>&gt;&lt;/<span style="color:#f92672">span</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">th</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">th</span> <span style="color:#a6e22e">scope</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rating-header&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sortable&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      리뷰 &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rating-sort-icon&#34;</span>&gt;&lt;/<span style="color:#f92672">span</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">th</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">th</span> <span style="color:#a6e22e">scope</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col&#34;</span>&gt;주요 특징&lt;/<span style="color:#f92672">th</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">tr</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">thead</span>&gt;
+</span></span></code></pre></div><p>제품의 이름 부분을 클릭했을 때 다음과 같은 코드로 제품 상세 페이지로 넘어가도록 설정했다.</p>
+<blockquote>
+<p><code>href=&quot;{{ url_for('main.model', id=product.id) }}&quot;</code></p>
+</blockquote>
+<h3 id="4-modelhtml">4. model.html</h3>
+<p>차트를 그리기 위해서 다양한 패키지를 사용해야했다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!--model.html 중 일부--&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- Include Chart.js --&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/chart.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- Include Chart.js date adapter for Moment.js --&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@1.0.0&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div><p>다음은 <code>routes.py</code>에서 받은 price_history 변수를 활용하여 차트를 만드는 script이다. 이는 html <code>canvas</code> tag에서 받아 입력된 값을 출력한다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!--model.html 중 일부--&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>  document.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;DOMContentLoaded&#39;</span>, (<span style="color:#a6e22e">event</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">priceHistory</span> <span style="color:#f92672">=</span> {{ <span style="color:#a6e22e">price_history</span><span style="color:#f92672">|</span><span style="color:#a6e22e">tojson</span> }};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">labels</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">priceHistory</span>.<span style="color:#a6e22e">dates</span>.<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">days</span> =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">date</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date();
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">setDate</span>(<span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">getDate</span>() <span style="color:#f92672">-</span> (<span style="color:#ae81ff">89</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">days</span>));
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">toISOString</span>().<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39;T&#39;</span>)[<span style="color:#ae81ff">0</span>];
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">minPrice</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">min</span>(...<span style="color:#a6e22e">priceHistory</span>.<span style="color:#a6e22e">prices</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">maxPrice</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">max</span>(...<span style="color:#a6e22e">priceHistory</span>.<span style="color:#a6e22e">prices</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Convert minPrice to string, leave first digit unchanged, and turn the remaining digits to zero
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">minPriceStr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">minPrice</span>.<span style="color:#a6e22e">toString</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">firstDigit</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">minPriceStr</span>[<span style="color:#ae81ff">0</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">zeros</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;0&#39;</span>.<span style="color:#a6e22e">repeat</span>(<span style="color:#a6e22e">minPriceStr</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">yMin</span> <span style="color:#f92672">=</span> parseFloat(<span style="color:#a6e22e">firstDigit</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">zeros</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ctx</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;priceHistoryChart&#39;</span>).<span style="color:#a6e22e">getContext</span>(<span style="color:#e6db74">&#39;2d&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Chart</span>(<span style="color:#a6e22e">ctx</span>, {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;line&#39;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">labels</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">labels</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">datasets</span><span style="color:#f92672">:</span> [{
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">label</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>, <span style="color:#75715e">// Set label to an empty string to hide it from the legend
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>          <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">priceHistory</span>.<span style="color:#a6e22e">prices</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">borderColor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;rgba(75, 192, 192, 1)&#39;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">backgroundColor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;rgba(75, 192, 192, 0.2)&#39;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">fill</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">tension</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0.1</span>
+</span></span><span style="display:flex;"><span>        }]
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">options</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">plugins</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">legend</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span> <span style="color:#75715e">// Hide the legend
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>          },
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;지난 90일 가격 추이&#39;</span> <span style="color:#75715e">// Chart title
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>          }
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">scales</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">x</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;time&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">time</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">unit</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;day&#39;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>          },
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">y</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">min</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">yMin</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Price&#39;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div><hr>
+<h2 id="static">Static</h2>
+<p>사용한 css, js 코드에 대한 설명도 추가하려고 했으나, 기본적인 수준이고 내용이 크게 중요하지 않아 생략한다.</p>
+<hr>
+<h2 id="수정-필요-사항">수정 필요 사항</h2>
+<ol>
+<li>404 에러 등 에러 처리</li>
+<li>제품 과거 최고 가격 대비 할인율 내림차순 정렬</li>
+<li>파트너스 공지 추가</li>
+<li>온라인으로 접속했을 때 너무 느림.(자바스크립트가 반영되기 전 값들이 눈에 보임.) 더 효율적인 방법 찾기.</li>
+<li>모바일 접근성 확보</li>
+<li>필터 최적화 및 추가</li>
+</ol>
+<h2 id="같은-주제-게시글-모음">같은 주제 게시글 모음</h2>
+ 
+<ul>
+  
+  <li><a href="/posts/services/coupangman/coupangman3/">coupang TV[3] - 프론트엔드</a></li>
+  
+  <li><a href="/posts/services/coupangman/coupangman2/">coupang TV[2] - 백엔드</a></li>
+  
+  <li><a href="/posts/services/coupangman/coupangman1/">coupang TV[1] - 프로젝트 구조 설계</a></li>
+  
+</ul>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/flask/" rel="tag">flask</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/coupang-tv/" rel="tag">coupang tv</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/frontend/" rel="tag">frontend</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/javascript/" rel="tag">javascript</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/jinja2/" rel="tag">jinja2</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="이투식 avatar" src="/img/leetusik_black.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">About 이투식</span>
+	</div>
+	<div class="authorbox__description">
+		이런 투자 방식, 이투식입니다.
+	</div>
+</div>
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/posts/services/coupangman/coupangman2/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">coupang TV[2] - 백엔드</p>
+		</a>
+	</div>
+</nav>
+
+
+			</div>
+			<aside class="sidebar">
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/posts/services/coupangman/coupangman3/">coupang TV[3] - 프론트엔드</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/services/coupangman/coupangman2/">coupang TV[2] - 백엔드</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/services/coupangman/coupangman1/">coupang TV[1] - 프로젝트 구조 설계</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/services/">Services</a>&nbsp;
+				<span class="widget__counter widget__counter--bubble">3</span>
+				</li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/backend/" title="Backend">Backend</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/coupang-tv/" title="Coupang Tv">Coupang Tv</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/flask/" title="Flask">Flask</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/frontend/" title="Frontend">Frontend</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/indie-hacker/" title="Indie Hacker">Indie Hacker</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/javascript/" title="Javascript">Javascript</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/jinja2/" title="Jinja2">Jinja2</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/python/" title="Python">Python</a>
+	</div>
+</div>
+<div class="widget-social widget">
+	<h4 class="widget-social__title widget__title">Social</h4>
+	<div class="widget-social__content widget__content">
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="Instagram" rel="noopener noreferrer" href="https://www.instagram.com/leetusik" target="_blank">
+				<svg class="widget-social__link-icon icon icon-instagram" width="24" height="24" viewBox="0 0 256 256"><circle cx="193" cy="59" r="15"/><path fill-rule="evenodd" d="M101 0h54c41 0 58.4 3.9 74.5 17C256.2 37.5 256 74.8 256 97.7v60c0 26.7 0 60.4-26.5 81.4-16 13.4-33.5 16.9-74.5 16.9h-54c-41 0-57.5-3.5-74.5-16.9C1 218.9.5 186.3.1 160.5L0 155V97.7c0-23-.2-60.2 26.5-80.7C45 2 60 0 101 0zm4.9 23h44.3c45.8 0 58.3 3.5 70.3 17.5 11.8 13.2 12 30.1 12.5 62.9V156c.2 20.8.3 45.8-12.5 59.5-12 14-24.5 17.5-70.3 17.5h-44.3c-45.9 0-57.3-3.5-70.4-17.5-12.2-13-12.3-36.5-12.4-56.7v-55.6c.4-32.6.7-49.6 12.4-62.7C48 26.5 60 23 105.9 23zm19.6 144.5a42 42 0 1 0 0-84 42 42 0 0 0 0 84zm0 22.5a64.5 64.5 0 1 0 0-129 64.5 64.5 0 0 0 0 129z"/></svg>
+				<span>Instagram</span>
+			</a>
+		</div>
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="GitHub" rel="noopener noreferrer" href="https://github.com/leetusik" target="_blank">
+				<svg class="widget-social__link-icon icon icon-github" width="24" height="24" viewBox="0 0 384 374"><path d="m192 0c-106.1 0-192 85.8-192 191.7 0 84.7 55 156.6 131.3 181.9 9.6 1.8 13.1-4.2 13.1-9.2 0-4.6-.2-16.6-.3-32.6-53.4 11.6-64.7-25.7-64.7-25.7-8.7-22.1-21.3-28-21.3-28-17.4-11.9 1.3-11.6 1.3-11.6 19.3 1.4 29.4 19.8 29.4 19.8 17.1 29.3 44.9 20.8 55.9 15.9 1.7-12.4 6.7-20.8 12.2-25.6-42.6-4.8-87.5-21.3-87.5-94.8 0-20.9 7.5-38 19.8-51.4-2-4.9-8.6-24.3 1.9-50.7 0 0 16.1-5.2 52.8 19.7 15.3-4.2 31.7-6.4 48.1-6.5 16.3.1 32.7 2.2 48.1 6.5 36.7-24.8 52.8-19.7 52.8-19.7 10.5 26.4 3.9 45.9 1.9 50.7 12.3 13.4 19.7 30.5 19.7 51.4 0 73.7-44.9 89.9-87.7 94.6 6.9 5.9 13 17.6 13 35.5 0 25.6-.2 46.3-.2 52.6 0 5.1 3.5 11.1 13.2 9.2 76.2-25.5 131.2-97.3 131.2-182 0-105.9-86-191.7-192-191.7z"/></svg>
+				<span>GitHub</span>
+			</a>
+		</div>
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="Email" href="mailto:leetusik@gmail.com">
+				<svg class="widget-social__link-icon icon icon-mail" width="24" height="24" viewBox="0 0 24 24"><path d="M0 3h24v18H0zm2 16h20V7l-10 6L2 7zM22 5H2l10 6z"/></svg>
+				<span>leetusik@gmail.com</span>
+			</a>
+		</div>
+
+		
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2024 이투식.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>

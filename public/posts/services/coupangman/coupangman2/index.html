@@ -357,7 +357,7 @@ TCL 브랜드 모델명의 경우 쿠팡 제품명 속 모델명이 3글자가 �
 </span></span><span style="display:flex;"><span>            feature_code<span style="color:#f92672">=</span>code,
 </span></span><span style="display:flex;"><span>            prod<span style="color:#f92672">=</span>product,
 </span></span><span style="display:flex;"><span>        )
-</span></span></code></pre></div><p>우선 em tag의 &lsquo;'을 기준으로 스펙 사항을 분리한다. 그리고 불필요한 요소를 제거한 clean_spec_list를 만든다.
+</span></span></code></pre></div><p>우선 em tag의 &lsquo;/&lsquo;를 기준으로 스펙 사항을 분리한다. 그리고 불필요한 요소를 제거한 clean_spec_list를 만든다.
 그리고 스펙리스트 하나하나의 사항을 for 문을 통해 어떤 구분에 대한 스펙인지 분류하고, 데이터베이스에 저장하기위한 전 작업을한다.</p>
 <p>오직 다나와의 지저분한 정보를 수집하기위해 재활용 가능성이 낮은 코드를 작성했지만, 그래도 깨끗하지않은 정보를 나름대로 정리할 수 있었다.</p>
 <hr>
@@ -670,6 +670,8 @@ TCL 브랜드 모델명의 경우 쿠팡 제품명 속 모델명이 3글자가 �
  
 <ul>
   
+  <li><a href="/posts/services/coupangman/coupangman3/">coupang TV[3] - 프론트엔드</a></li>
+  
   <li><a href="/posts/services/coupangman/coupangman2/">coupang TV[2] - 백엔드</a></li>
   
   <li><a href="/posts/services/coupangman/coupangman1/">coupang TV[1] - 프로젝트 구조 설계</a></li>
@@ -682,9 +684,6 @@ TCL 브랜드 모델명의 경우 쿠팡 제품명 속 모델명이 3글자가 �
 	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
 	<ul class="tags__list">
 		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/indie-hacker/" rel="tag">indie hacker</a>
-		</li>
-		<li class="tags__item">
 			<a class="tags__link btn" href="/tags/flask/" rel="tag">flask</a>
 		</li>
 		<li class="tags__item">
@@ -692,6 +691,9 @@ TCL 브랜드 모델명의 경우 쿠팡 제품명 속 모델명이 3글자가 �
 		</li>
 		<li class="tags__item">
 			<a class="tags__link btn" href="/tags/backend/" rel="tag">backend</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/python/" rel="tag">python</a>
 		</li>
 	</ul>
 </div>
@@ -718,6 +720,12 @@ TCL 브랜드 모델명의 경우 쿠팡 제품명 속 모델명이 3글자가 �
 			<p class="pager__title">coupang TV[1] - 프로젝트 구조 설계</p>
 		</a>
 	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/posts/services/coupangman/coupangman3/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">coupang TV[3] - 프론트엔드</p>
+		</a>
+	</div>
 </nav>
 
 
@@ -727,6 +735,7 @@ TCL 브랜드 모델명의 경우 쿠팡 제품명 속 모델명이 3글자가 �
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/posts/services/coupangman/coupangman3/">coupang TV[3] - 프론트엔드</a></li>
 			<li class="widget__item"><a class="widget__link" href="/posts/services/coupangman/coupangman2/">coupang TV[2] - 백엔드</a></li>
 			<li class="widget__item"><a class="widget__link" href="/posts/services/coupangman/coupangman1/">coupang TV[1] - 프로젝트 구조 설계</a></li>
 		</ul>
@@ -738,7 +747,7 @@ TCL 브랜드 모델명의 경우 쿠팡 제품명 속 모델명이 3글자가 �
 		<ul class="widget__list">
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/services/">Services</a>&nbsp;
-				<span class="widget__counter widget__counter--bubble">2</span>
+				<span class="widget__counter widget__counter--bubble">3</span>
 				</li>
 		</ul>
 	</div>
@@ -749,7 +758,11 @@ TCL 브랜드 모델명의 경우 쿠팡 제품명 속 모델명이 3글자가 �
 		<a class="widget-taglist__link widget__link btn" href="/tags/backend/" title="Backend">Backend</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/coupang-tv/" title="Coupang Tv">Coupang Tv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/flask/" title="Flask">Flask</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/frontend/" title="Frontend">Frontend</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/indie-hacker/" title="Indie Hacker">Indie Hacker</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/javascript/" title="Javascript">Javascript</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/jinja2/" title="Jinja2">Jinja2</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/python/" title="Python">Python</a>
 	</div>
 </div>
 <div class="widget-social widget">
