@@ -4,7 +4,7 @@ date = 2024-08-08T17:50:44+09:00
 categories = ["services"]
 tags = ["coupang tv", "linux", "server", "docker"]
 toc = true
-draft = true
+draft = false
 +++
 
 이번 글에서는 꿀매(쿠팡tv) 프로젝트를 배포하기위해 집 노트북 서버를 어떻게 구축했는지 소개한다. 자주 사용하지 않는 lenovo ideapad 제품을 사용했고, OS는 Fedora Linux 40를 사용했다.
