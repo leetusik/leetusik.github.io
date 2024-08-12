@@ -6,8 +6,15 @@
     <description>Recent content in Coupang Tv on 이투식</description>
     <generator>Hugo</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Thu, 08 Aug 2024 11:07:37 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 08 Aug 2024 17:50:44 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/coupang-tv/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>coupang TV[4] - 서버</title>
+      <link>http://localhost:1313/posts/services/coupangman/coupangman4/</link>
+      <pubDate>Thu, 08 Aug 2024 17:50:44 +0900</pubDate>
+      <guid>http://localhost:1313/posts/services/coupangman/coupangman4/</guid>
+      <description>&lt;p&gt;이번 글에서는 꿀매(쿠팡tv) 프로젝트를 배포하기위해 집 노트북 서버를 어떻게 구축했는지 소개한다. 자주 사용하지 않는 lenovo ideapad 제품을 사용했고, OS는 Fedora Linux 40를 사용했다.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>coupang TV[3] - 프론트엔드</title>
       <link>http://localhost:1313/posts/services/coupangman/coupangman3/</link>

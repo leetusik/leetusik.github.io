@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>coupang TV[4] - 서버 - 이투식</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo logo--mixed">
+		<a class="logo__link" href="/" title="이투식" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/leetusik_black.png">
+				</div><div class="logo__item logo__text">
+					<div class="logo__title">이투식</div>
+					<div class="logo__tagline">이런 투자 방식</div>
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menu</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/about/">
+				
+				<span class="menu__text">ABOUT</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">coupang TV[4] - 서버</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2024-08-08T17:50:44&#43;09:00">2024-08-08</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/services/" rel="category">Services</a>
+	</span>
+</div></div>
+		</header>
+		
+<div class="post__toc toc">
+	<div class="toc__title">Page content</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#홈-서버-구축-이유">홈 서버 구축 이유</a>
+      <ul>
+        <li><a href="#1-비용절감">1. 비용절감</a></li>
+        <li><a href="#2-의존성-축소">2. 의존성 축소</a></li>
+      </ul>
+    </li>
+    <li><a href="#fedora-linux-40-환경-설정">fedora linux 40 환경 설정</a>
+      <ul>
+        <li><a href="#1-live-usb-만들기">1. live USB 만들기</a></li>
+        <li><a href="#2-리눅스-설치-및-설정">2. 리눅스 설치 및 설정</a></li>
+      </ul>
+    </li>
+    <li><a href="#꿀매쿠팡tv-배포">꿀매(쿠팡tv) 배포</a>
+      <ul>
+        <li><a href="#1-프로젝트-클론">1. 프로젝트 클론</a></li>
+        <li><a href="#2-docker-설정">2. docker 설정</a></li>
+        <li><a href="#3-로그-확인">3. 로그 확인</a></li>
+        <li><a href="#4-기타-에러-해결">4. 기타 에러 해결</a></li>
+      </ul>
+    </li>
+    <li><a href="#수정-필요-사항">수정 필요 사항</a></li>
+    <li><a href="#같은-주제-게시글-모음">같은 주제 게시글 모음</a></li>
+  </ul>
+</nav>
+	</div>
+</div><div class="content post__content clearfix">
+			<p>이번 글에서는 꿀매(쿠팡tv) 프로젝트를 배포하기위해 집 노트북 서버를 어떻게 구축했는지 소개한다. 자주 사용하지 않는 lenovo ideapad 제품을 사용했고, OS는 Fedora Linux 40를 사용했다.</p>
+<h2 id="홈-서버-구축-이유">홈 서버 구축 이유</h2>
+<p>과거에 aws를 사용한 적이 있고, 또 cloudtype같은 무료 서비스 배포 플랫폼이 있지만 굳이 노트북을 활용해서 홈 서버를 구축했다. 그 이유는 비용 절감과 의존성 축소다.</p>
+<h3 id="1-비용절감">1. 비용절감</h3>
+<p>내가 프로그래밍에 서툴러서 그런지는 모르겠지만 단순히 하루에 한 번 크롤링 프로그램이 약 45분 정도 돌아가는 꿀매(쿠팡tv)같은 작은 서비스도 메모리 2 GB 정도는 상시 사용한다.
+<div style="text-align: center">
+  <img src="memory.png" alt="홈 서버 메모리 사용 현황" style="max-width: 100%;
+  height: auto;">
+  <div style="font-size: 0.9em; color: gray">홈 서버 메모리 사용 현황</div>
+  <br />
+</div>
+</p>
+<p>aws의 경우에는 EC2를 사용했을 때, 2 GB는 <code>t3.medium</code>이상 플랜을 사용해야하고, 이건 달에 $30도 넘는다.
+cloudtype의 경우에도 프로 플랜이 1 GB 램 기준 2 만원부터 시작이고, 추가 RAM을 사용하려면 추가 비용을 내야한다.</p>
+<p>당장 사용자가 있을 것으로 기대되지 않는 내 서비스의 특성과 앞으로도 다수의 서비스를 추가로 만들 것을 생각할 때, 당장의 서버 안정성보다 당장의 주머니 사정을 고려했다.</p>
+<p>지금 당장 전기 요금 수준은 잘 모르겠지만, 전기 요금이 150원/kWh 이라고 가정했을 때, 한 달 요금이 약 3 천원이라는 챗 지피티의 계산이 나온다. 이는 클라우드 서비스를 이용할 때에 비해 1/10 수준이며 컴퓨터 성능도 훨씬 좋다!</p>
+<h3 id="2-의존성-축소">2. 의존성 축소</h3>
+<p>요즘에는 aws의 elastic beanstalk처럼 거의 파일만 옮기면 바로 배포해주는 서비스가 많은 것 같다. 하지만 서버가 어떻게 돌아가는지 이해해야(적어도 조금은 알아야) 추후에 스케일을 확장하거나 혹은 축소하고 싶을 때 유동적인 대처가 가능하겠다는 판단이 들었다.</p>
+<hr>
+<h2 id="fedora-linux-40-환경-설정">fedora linux 40 환경 설정</h2>
+<p><a href="https://youtu.be/HxvFuGnjoJo?si=m7XG6NQbWbXLbftY">유튜브 TechHut</a>의 동영상으로 서버 구축의 대부분을 배웠다.</p>
+<h3 id="1-live-usb-만들기">1. live USB 만들기</h3>
+<ol>
+<li>
+<p><a href="https://fedoraproject.org/server/download">Fedora Server 40 Download</a></p>
+<ul>
+<li>본인 컴퓨터에 맞는 iso 파일을 다운로드한다.</li>
+</ul>
+</li>
+<li>
+<p><a href="https://etcher.balena.io/">balenaEtcher Download</a></p>
+<ul>
+<li>balena 프로그램을 다운로드 한 후, iso 파일을 사용해 Live USB를 만든다.</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-리눅스-설치-및-설정">2. 리눅스 설치 및 설정</h3>
+<p>USB를 노트북에 꼽고 부팅할 때 바이오스 설정으로 들어가서 USB로 부팅을 시도한다. 이후 설치 유도에 따라 진행한다.</p>
+<h4 id="21-저장공간-활용-최대로">2.1 저장공간 활용 최대로</h4>
+<p>fedora linux를 처음 설치했을 때, 이미 윈도우가 깔려있는 디스크에 파티션을 구분해서 설치를 해서인지, 60 GB의 파티션에 설치를 했음에도 불구하고 15 GB의 공간만 사용할 수 있는 것을 확인했다.</p>
+<p>아래의 명령어로 60 GB 전체 공간을 활용할 수 있었다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo lvextend -l +100%FREE /dev/mapper/fedora-root
+</span></span></code></pre></div><h4 id="22-filezilla">2.2 FileZilla</h4>
+<p><a href="https://filezilla-project.org/">FileZilla</a>를 다운받아서 같은 네트워크에만 연결되어 있다면 다른 기기간 파일을 자유롭게 옮길 수 있다.</p>
+<h4 id="23-노트북-닫은-채로-실행">2.3 노트북 닫은 채로 실행</h4>
+<p><code>/etc/systemd/logind.conf</code> 파일을 아래와 같이 설정해서 노트북을 닫은 채로 서버를 돌릴 수 있다.</p>
+<pre tabindex="0"><code class="language-conf" data-lang="conf"># /etc/systemd/logind.conf 파일 설정
+
+[Login]
+HandleSuspendKey=ignore
+HandleLidSwitch=ignore
+HandleLidSwitchDocked=ignore
+</code></pre><h4 id="23-docker-설치">2.3 Docker 설치</h4>
+<p>리눅스 터미널에서 아래와 같은 명령어를 활용해 docker를 설치할 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -fsSL https://get.docker.com -o get-docdekr.sh
+</span></span><span style="display:flex;"><span>sudo sh get-docker.sh
+</span></span></code></pre></div><hr>
+<h2 id="꿀매쿠팡tv-배포">꿀매(쿠팡tv) 배포</h2>
+<p>docker까지 설치했다면 기본적인 배포 준비는 끝났다. 서버 설치부터 서비스 배포까지 모두 처음해봤기 때문에 상당한 시간이 들었다.</p>
+<h3 id="1-프로젝트-클론">1. 프로젝트 클론</h3>
+<p>프로젝트를 복사할 디렉토리로 이동한 뒤에 다음의 명령어를 입력한다. 쿠팡tv 서비스를 만들 때 suganglive 깃헙 계정을 사용하여 작업했기 때문에 그 repository를 가져온다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone --branch feature/coupangman2 https://github.com/suganglive/coupangman.git
+</span></span></code></pre></div><h3 id="2-docker-설정">2. docker 설정</h3>
+<p>그냥 <code>flask run</code>을 입력하면 되는 로컬 환경과 다르게, docker에서 앱을 실행하려면 2가지 + 1가지 파일을 따로 생성해야한다.</p>
+<h4 id="21-dockerfile-설정">2.1 Dockerfile 설정</h4>
+<p>첫 번째는 Dockerfile이다. 확장자 명 없이 그냥 Dockerfile.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="display:flex;"><span><span style="color:#75715e"># Dockerfile</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Use an official Python runtime as a parent image</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> python:3.9-slim</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Install Chromium and other dependencies</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> apt-get update <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    apt-get install -y chromium chromium-driver tzdata <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    apt-get clean<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Set the timezone to Asia/Seoul</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> TZ<span style="color:#f92672">=</span>Asia/Seoul<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> ln -snf /usr/share/zoneinfo/$TZ /etc/localtime <span style="color:#f92672">&amp;&amp;</span> echo $TZ &gt; /etc/timezone<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Set the working directory in the container</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span><span style="color:#e6db74"> /app</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Copy the current directory contents into the container at /app</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> . /app<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Install setuptools and pip</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> pip install --upgrade pip setuptools<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Install any needed packages specified in requirements.txt</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> pip install --no-cache-dir -r requirements.txt<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Make port 5000 available to the world outside this container</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">EXPOSE</span><span style="color:#e6db74"> 5000</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Define environment variable</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> NAME World<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Run run.py when the container launches</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> [<span style="color:#e6db74">&#34;python&#34;</span>, <span style="color:#e6db74">&#34;run.py&#34;</span>]<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><p>Chatgpt의 힘으로 작성한 코드이기 때문에 영어로 주석처리가 되어있다.</p>
+<h4 id="22-docker-composeyml-설정">2.2 docker-compose.yml 설정</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#75715e"># docker-compose.yml</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;3.8&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">web</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">build</span>: <span style="color:#ae81ff">.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;5000:5000&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">.:/app</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">depends_on</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">redis</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">FLASK_ENV=development</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">redis</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">redis:alpine</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;6379:6379&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">celery_worker</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">build</span>: <span style="color:#ae81ff">.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">command</span>: <span style="color:#ae81ff">celery -A celery_worker.celery worker --loglevel=info</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">.:/app</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">depends_on</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">web</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">redis</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">CELERY_BROKER_URL=redis://redis:6379/0</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">CELERY_RESULT_BACKEND=redis://redis:6379/0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">celery_beat</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">build</span>: <span style="color:#ae81ff">.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">command</span>: <span style="color:#ae81ff">celery -A celery_worker.celery beat --loglevel=info</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">.:/app</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">depends_on</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">web</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">redis</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">CELERY_BROKER_URL=redis://redis:6379/0</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">CELERY_RESULT_BACKEND=redis://redis:6379/0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">nginx</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">nginx:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;80:80&#34;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;443:443&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./nginx.conf:/etc/nginx/nginx.conf</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./certbot/conf:/etc/letsencrypt</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./certbot/www:/var/www/certbot</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">depends_on</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">web</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">certbot</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">certbot/certbot</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./certbot/conf:/etc/letsencrypt</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./certbot/www:/var/www/certbot</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">entrypoint</span>: <span style="color:#ae81ff">/bin/sh -c &#34;trap exit TERM; while :; do certbot renew; sleep 12h &amp; wait $$!; done;&#34;</span>
+</span></span></code></pre></div><p>https도 설정하고싶어서 certbot을 추가했지만, 실패했다. 지금 꿀매(쿠팡tv)는 사용자가 보안에 유의할 정도의 정보 입력을 필요로하지 않으니, https는 다음으로 미루기로 했다.</p>
+<p>아래의 두 커맨드는 원래 터미널에서 직접 입력하던 것들인데, 이런 것을 처리하는게 docker-compose.yml의 역할이구나 싶었다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>celery -A celery_worker.celery worker --loglevel<span style="color:#f92672">=</span>info
+</span></span><span style="display:flex;"><span>celery -A celery_worker.celery beat --loglevel<span style="color:#f92672">=</span>info
+</span></span></code></pre></div><h4 id="23-nginxconf-설정">2.3 nginx.conf 설정</h4>
+<p>솔직히 이해가 되는 부분은 많지 않다. 그냥 작동하니 내비 뒀다. https는 실패했다. 많이 하다보면 자연스레 알게 되겠지 싶다.</p>
+<pre tabindex="0"><code class="language-conf" data-lang="conf">user  nginx;
+worker_processes  auto;
+error_log  /var/log/nginx/error.log notice;
+pid        /var/run/nginx.pid;
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+
+    log_format  main  &#39;$remote_addr - $remote_user [$time_local] &#34;$request&#34; &#39;
+                      &#39;$status $body_bytes_sent &#34;$http_referer&#34; &#39;
+                      &#39;&#34;$http_user_agent&#34; &#34;$http_x_forwarded_for&#34;&#39;;
+
+    access_log  /var/log/nginx/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    keepalive_timeout  65;
+
+    #gzip  on;
+
+    include /etc/nginx/conf.d/*.conf;
+
+    server {
+        listen 80;
+        server_name ggulmae.com www.ggulmae.com;
+
+        location / {
+            proxy_pass http://web:5000;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        location /.well-known/acme-challenge/ {
+            root /var/www/certbot;
+        }
+
+        error_page 404 /404.html;
+        location = /404.html {
+            internal;
+        }
+    }
+}
+</code></pre><h4 id="24-기타-커맨드">2.4 기타 커맨드</h4>
+<p>아래의 커맨드로 docker에서 돌아가는 앱을 재시작한다. Dockerfile 등을 수정하지 않았다면 build 라인은 빼도 된다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo docker-compose down
+</span></span><span style="display:flex;"><span>sudo docker-compose build
+</span></span><span style="display:flex;"><span>sudo docker-compose  up -d
+</span></span></code></pre></div><p>다음의 커맨드로 리눅스 터미널에서 실행중인 docker web 서비스에서 <code>python</code> 명령어를 통해 파이썬에 접근할 수 있다. 파이썬에 접근해서 tasks.py에 정리된 task를 실행할 수 있다.</p>
+<p>celery beat를 사용해 매일 5시 17분(그냥 시험해보던 시간이 5시 언저리였기 때문이다.) 스크래핑을 하지만, 시험하는 과정에서 이렇게 수동으로 파이썬에 많이 접근했다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo docker-compose exec web /bin/sh
+</span></span></code></pre></div><h3 id="3-로그-확인">3. 로그 확인</h3>
+<p>docker에서 돌아가는 파일 확인</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sugang@localhost:~/projects/coupangman$ sudo docker-compose ps
+</span></span><span style="display:flex;"><span>NAME                         COMMAND                  SERVICE             STATUS              PORTS
+</span></span><span style="display:flex;"><span>coupangman-celery_beat-1     <span style="color:#e6db74">&#34;celery -A celery_wo…&#34;</span>   celery_beat         running             5000/tcp
+</span></span><span style="display:flex;"><span>coupangman-celery_worker-1   <span style="color:#e6db74">&#34;celery -A celery_wo…&#34;</span>   celery_worker       running             5000/tcp
+</span></span><span style="display:flex;"><span>coupangman-certbot-1         <span style="color:#e6db74">&#34;/bin/sh -c &#39;trap ex…&#34;</span>   certbot             running             80/tcp, 443/tcp
+</span></span><span style="display:flex;"><span>coupangman-nginx-1           <span style="color:#e6db74">&#34;/docker-entrypoint.…&#34;</span>   nginx               running             0.0.0.0:80-&gt;80/tcp, :::80-&gt;80/tcp, 0.0.0.0:443-&gt;443/tcp, :::443-&gt;443/tcp
+</span></span><span style="display:flex;"><span>coupangman-redis-1           <span style="color:#e6db74">&#34;docker-entrypoint.s…&#34;</span>   redis               running             0.0.0.0:6379-&gt;6379/tcp, :::6379-&gt;6379/tcp
+</span></span><span style="display:flex;"><span>coupangman-web-1             <span style="color:#e6db74">&#34;python run.py&#34;</span>          web                 running             0.0.0.0:5000-&gt;5000/tcp, :::5000-&gt;5000/tcp
+</span></span></code></pre></div><p>celery_worker의 로그 확인(마지막 50줄)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sugang@localhost:~/projects/coupangman$ sudo docker-compose logs --tail<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span> celery_worker
+</span></span></code></pre></div><h3 id="4-기타-에러-해결">4. 기타 에러 해결</h3>
+<p><a href="http://ggulmae.com">http://ggulmae.com</a> 에 접근했을 때, 주소 뒤로 이상한 주소가 붙으면서 <a href="http://ggulmae.com/login/login.cgi">http://ggulmae.com/login/login.cgi</a> 주소로 접속되는 오류가 있었다.
+구글링을 통해 네트워크 포트 충돌 이슈일 가능성이 있다는 것을 확인하고, iptime 포트포워드 설정에서 새로운 규칙을 추가하여 문제를 해결했다.</p>
+<div style="text-align: center">
+  <img src="network%20setting.png" alt="포트포워드 규칙" style="max-width: 100%;
+  height: auto;">
+  <div style="font-size: 0.9em; color: gray">포트포워드 규칙</div>
+  <br />
+</div>
+
+<h2 id="수정-필요-사항">수정 필요 사항</h2>
+<ol>
+<li>https 추가</li>
+</ol>
+<h2 id="같은-주제-게시글-모음">같은 주제 게시글 모음</h2>
+ 
+<ul>
+  
+  <li><a href="/posts/services/coupangman/coupangman4/">coupang TV[4] - 서버</a></li>
+  
+  <li><a href="/posts/services/coupangman/coupangman3/">coupang TV[3] - 프론트엔드</a></li>
+  
+  <li><a href="/posts/services/coupangman/coupangman2/">coupang TV[2] - 백엔드</a></li>
+  
+  <li><a href="/posts/services/coupangman/coupangman1/">coupang TV[1] - 프로젝트 구조 설계</a></li>
+  
+</ul>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/coupang-tv/" rel="tag">coupang tv</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/linux/" rel="tag">linux</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/server/" rel="tag">server</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/docker/" rel="tag">docker</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="이투식 avatar" src="/img/leetusik_black.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">About 이투식</span>
+	</div>
+	<div class="authorbox__description">
+		이런 투자 방식, 이투식입니다.
+	</div>
+</div>
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/posts/services/coupangman/coupangman3/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">coupang TV[3] - 프론트엔드</p>
+		</a>
+	</div>
+</nav>
+
+
+			</div>
+			<aside class="sidebar">
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/posts/services/coupangman/coupangman4/">coupang TV[4] - 서버</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/services/coupangman/coupangman3/">coupang TV[3] - 프론트엔드</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/services/coupangman/coupangman2/">coupang TV[2] - 백엔드</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/services/coupangman/coupangman1/">coupang TV[1] - 프로젝트 구조 설계</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/services/">Services</a>&nbsp;
+				<span class="widget__counter widget__counter--bubble">4</span>
+				</li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/backend/" title="Backend">Backend</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/coupang-tv/" title="Coupang Tv">Coupang Tv</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/docker/" title="Docker">Docker</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/flask/" title="Flask">Flask</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/frontend/" title="Frontend">Frontend</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/indie-hacker/" title="Indie Hacker">Indie Hacker</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/javascript/" title="Javascript">Javascript</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/jinja2/" title="Jinja2">Jinja2</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/python/" title="Python">Python</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/server/" title="Server">Server</a>
+	</div>
+</div>
+<div class="widget-social widget">
+	<h4 class="widget-social__title widget__title">Social</h4>
+	<div class="widget-social__content widget__content">
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="Instagram" rel="noopener noreferrer" href="https://www.instagram.com/leetusik" target="_blank">
+				<svg class="widget-social__link-icon icon icon-instagram" width="24" height="24" viewBox="0 0 256 256"><circle cx="193" cy="59" r="15"/><path fill-rule="evenodd" d="M101 0h54c41 0 58.4 3.9 74.5 17C256.2 37.5 256 74.8 256 97.7v60c0 26.7 0 60.4-26.5 81.4-16 13.4-33.5 16.9-74.5 16.9h-54c-41 0-57.5-3.5-74.5-16.9C1 218.9.5 186.3.1 160.5L0 155V97.7c0-23-.2-60.2 26.5-80.7C45 2 60 0 101 0zm4.9 23h44.3c45.8 0 58.3 3.5 70.3 17.5 11.8 13.2 12 30.1 12.5 62.9V156c.2 20.8.3 45.8-12.5 59.5-12 14-24.5 17.5-70.3 17.5h-44.3c-45.9 0-57.3-3.5-70.4-17.5-12.2-13-12.3-36.5-12.4-56.7v-55.6c.4-32.6.7-49.6 12.4-62.7C48 26.5 60 23 105.9 23zm19.6 144.5a42 42 0 1 0 0-84 42 42 0 0 0 0 84zm0 22.5a64.5 64.5 0 1 0 0-129 64.5 64.5 0 0 0 0 129z"/></svg>
+				<span>Instagram</span>
+			</a>
+		</div>
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="GitHub" rel="noopener noreferrer" href="https://github.com/leetusik" target="_blank">
+				<svg class="widget-social__link-icon icon icon-github" width="24" height="24" viewBox="0 0 384 374"><path d="m192 0c-106.1 0-192 85.8-192 191.7 0 84.7 55 156.6 131.3 181.9 9.6 1.8 13.1-4.2 13.1-9.2 0-4.6-.2-16.6-.3-32.6-53.4 11.6-64.7-25.7-64.7-25.7-8.7-22.1-21.3-28-21.3-28-17.4-11.9 1.3-11.6 1.3-11.6 19.3 1.4 29.4 19.8 29.4 19.8 17.1 29.3 44.9 20.8 55.9 15.9 1.7-12.4 6.7-20.8 12.2-25.6-42.6-4.8-87.5-21.3-87.5-94.8 0-20.9 7.5-38 19.8-51.4-2-4.9-8.6-24.3 1.9-50.7 0 0 16.1-5.2 52.8 19.7 15.3-4.2 31.7-6.4 48.1-6.5 16.3.1 32.7 2.2 48.1 6.5 36.7-24.8 52.8-19.7 52.8-19.7 10.5 26.4 3.9 45.9 1.9 50.7 12.3 13.4 19.7 30.5 19.7 51.4 0 73.7-44.9 89.9-87.7 94.6 6.9 5.9 13 17.6 13 35.5 0 25.6-.2 46.3-.2 52.6 0 5.1 3.5 11.1 13.2 9.2 76.2-25.5 131.2-97.3 131.2-182 0-105.9-86-191.7-192-191.7z"/></svg>
+				<span>GitHub</span>
+			</a>
+		</div>
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="Email" href="mailto:leetusik@gmail.com">
+				<svg class="widget-social__link-icon icon icon-mail" width="24" height="24" viewBox="0 0 24 24"><path d="M0 3h24v18H0zm2 16h20V7l-10 6L2 7zM22 5H2l10 6z"/></svg>
+				<span>leetusik@gmail.com</span>
+			</a>
+		</div>
+
+		
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2024 이투식.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>
