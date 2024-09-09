@@ -6,8 +6,15 @@
     <description>Recent content on 이투식</description>
     <generator>Hugo</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Thu, 08 Aug 2024 17:50:44 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 12 Aug 2024 16:58:42 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>코인2024[1] - 프로젝트 구조 설계</title>
+      <link>http://localhost:1313/posts/investing/firstcoinstartegy/fcs1/</link>
+      <pubDate>Mon, 12 Aug 2024 16:58:42 +0900</pubDate>
+      <guid>http://localhost:1313/posts/investing/firstcoinstartegy/fcs1/</guid>
+      <description>&lt;p&gt;코인 투자 전략 개발을 위한 프로젝트 구조를 설계한다.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>coupang TV[4] - 서버</title>
       <link>http://localhost:1313/posts/services/coupangman/coupangman4/</link>
@@ -42,6 +49,34 @@
       <pubDate>Tue, 06 Aug 2024 14:00:00 +0000</pubDate>
       <guid>http://localhost:1313/about/</guid>
       <description>&lt;p&gt;안녕하세요. 이런 투자 방식, 이투식입니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/personal/ps-copy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/personal/ps-copy/</guid>
+      <description>이수강 1999년 | 남 | 서울 마포구&#xA;010-3772-9916&#xA;swangle2100@gmail.com&#xA;자기소개서 안녕하세요. 귀사의 데이터 추출 담당자 직무에 지원하게 된 이수강입니다. 홍익대학교 경영학전공 졸업유예생이고, 2025년 2월 졸업 예정입니다. 4학년 1학기 “비즈니스프로그래밍2” 과목과 “빅데이터기반경영 / 사업타당성분석” 과목을 수강하면서 데이터 분석 분야를 접하게 되었고, 학기 중에 팀 프로젝트로 “한국 프로야구 관중수 예측 모델”을 만들어 보면서 데이터 분석이 적성에 맞는다는 것을 알게 되었습니다. 학기가 끝난 이후에도 후속 연구 제의를 받아 프로야구 관중수 예측 모델을 발전시켜 논문을 작성해 학회지에 게재하는 등 데이터를 다루는 것에 대한 이해를 넓히고 있습니다.</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/personal/ps/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/personal/ps/</guid>
+      <description>이수강 1999년 | 남 | 서울 마포구&#xA;010-3772-9916&#xA;swangle2100@gmail.com&#xA;자기소개서 안녕하세요. 귀사의 데이터 분석가 직무에 지원하게 된 이수강입니다. 홍익대학교 경영학전공 졸업유예생이고, 2025년 2월 졸업 예정입니다. 4학년 1학기 “비즈니스프로그래밍2” 과목과 “빅데이터기반경영 / 사업타당성분석” 과목을 수강하면서 데이터 분석 분야를 접하게 되었고, 학기 중에 팀 프로젝트로 “한국 프로야구 관중수 예측 모델”을 만들어 보면서 데이터 분석이 적성에 맞는다는 것을 알게 되었습니다. 학기가 끝난 이후에도 후속 연구 제의를 받아 프로야구 관중수 예측 모델을 발전시켜 논문을 작성해 학회지에 게재하는 등 데이터 분석 능력을 키우고 있습니다.</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/personal/resume-copy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/personal/resume-copy/</guid>
+      <description>이수강 1999년 | 남 | 서울 마포구&#xA;010-3772-9916&#xA;swangle2100@gmail.com&#xA;관심직종 데이터 전문가&#xA;업무 및 스킬 Python 데이터분석 머신러닝 딥러닝 SQL Pytorch 희망연봉 회사 내규에 따름&#xA;학력사항 홍익대학교 (경영학전공)&#xA;대학교(4년) 재학 중 | 학사&#xA;2018.02 ~ 재학중&#xA;현재 학사취득유예 상태입니다. 2025년 2월 졸업예정입니다. 활동 및 수상 2023.12 ~ 2024.06&#xA;머신러닝 활용 야구 관객수 예측 논문 학회지 게재&#xA;&amp;ldquo;키워드 검색량 기반 한국프로야구 관중수 예측&amp;rdquo; 연구 1 저자로서 논문 게재 한국스포츠산업경영학회지, 2024, 제29권 4호, pp.</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/personal/resume/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/personal/resume/</guid>
+      <description>이수강 1999년 | 남 | 서울 마포구&#xA;010-3772-9916&#xA;swangle2100@gmail.com&#xA;관심직종 데이터사이언티스트&#xA;업무 및 스킬 Python 데이터분석 머신러닝 딥러닝 SQL Pytorch 희망연봉 회사 내규에 따름&#xA;학력사항 홍익대학교 (경영학전공)&#xA;대학교(4년) 재학 중 | 학사&#xA;2018.02 ~ 재학중&#xA;현재 학사취득유예 상태입니다. 2025년 2월 졸업예정입니다. 활동 및 수상 2023.12 ~ 2024.06&#xA;머신러닝 활용 야구 관객수 예측 논문 학회지 게재&#xA;&amp;ldquo;키워드 검색량 기반 한국프로야구 관중수 예측&amp;rdquo; 연구 1 저자로서 논문 게재 한국스포츠산업경영학회지, 2024, 제29권 4호, pp.</description>
     </item>
   </channel>
 </rss>

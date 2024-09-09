@@ -6,8 +6,36 @@
     <description>Recent content in Tags on 이투식</description>
     <generator>Hugo</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Thu, 08 Aug 2024 17:50:44 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 12 Aug 2024 16:58:42 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Coin</title>
+      <link>http://localhost:1313/tags/coin/</link>
+      <pubDate>Mon, 12 Aug 2024 16:58:42 +0900</pubDate>
+      <guid>http://localhost:1313/tags/coin/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Coin2024</title>
+      <link>http://localhost:1313/tags/coin2024/</link>
+      <pubDate>Mon, 12 Aug 2024 16:58:42 +0900</pubDate>
+      <guid>http://localhost:1313/tags/coin2024/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Investing</title>
+      <link>http://localhost:1313/tags/investing/</link>
+      <pubDate>Mon, 12 Aug 2024 16:58:42 +0900</pubDate>
+      <guid>http://localhost:1313/tags/investing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Research</title>
+      <link>http://localhost:1313/tags/research/</link>
+      <pubDate>Mon, 12 Aug 2024 16:58:42 +0900</pubDate>
+      <guid>http://localhost:1313/tags/research/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Coupang Tv</title>
       <link>http://localhost:1313/tags/coupang-tv/</link>
@@ -16,10 +44,10 @@
       <description></description>
     </item>
     <item>
-      <title>Fedora</title>
-      <link>http://localhost:1313/tags/fedora/</link>
+      <title>Docker</title>
+      <link>http://localhost:1313/tags/docker/</link>
       <pubDate>Thu, 08 Aug 2024 17:50:44 +0900</pubDate>
-      <guid>http://localhost:1313/tags/fedora/</guid>
+      <guid>http://localhost:1313/tags/docker/</guid>
       <description></description>
     </item>
     <item>
