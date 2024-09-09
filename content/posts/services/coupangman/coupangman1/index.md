@@ -1,5 +1,5 @@
 +++
-title = 'coupang TV[1] - 프로젝트 구조 설계'
+title = 'coupang TV[0] - 프로젝트 구조 설계'
 date = 2024-08-07T05:31:40+09:00
 categories = ["services"]
 tags = ["indie hacker", "coupang tv"]

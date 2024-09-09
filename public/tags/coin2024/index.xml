@@ -6,17 +6,24 @@
     <description>Recent content in Coin2024 on 이투식</description>
     <generator>Hugo</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Mon, 09 Sep 2024 13:29:53 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 09 Sep 2024 14:39:39 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/coin2024/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>코인2024[2] - 선행 연구 리서치</title>
+      <title>코인2024[2] - 전략 성능 평가 및 응용 전략 개발</title>
+      <link>http://localhost:1313/posts/investing/firstcoinstrategy/fcs3/</link>
+      <pubDate>Mon, 09 Sep 2024 14:39:39 +0900</pubDate>
+      <guid>http://localhost:1313/posts/investing/firstcoinstrategy/fcs3/</guid>
+      <description>&lt;p&gt;이번 글에서는 조사한 전략 성능 평가와 평가를 바탕으로 응용 전략을 개발한다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>코인2024[1] - 선행 연구 리서치</title>
       <link>http://localhost:1313/posts/investing/firstcoinstrategy/fcs2/</link>
       <pubDate>Mon, 09 Sep 2024 13:29:53 +0900</pubDate>
       <guid>http://localhost:1313/posts/investing/firstcoinstrategy/fcs2/</guid>
       <description>&lt;p&gt;코인 투자 선행 연구들을 찾아본다.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>코인2024[1] - 프로젝트 구조 설계</title>
+      <title>코인2024[0] - 프로젝트 구조 설계</title>
       <link>http://localhost:1313/posts/investing/firstcoinstrategy/fcs1/</link>
       <pubDate>Mon, 09 Sep 2024 00:00:00 +0900</pubDate>
       <guid>http://localhost:1313/posts/investing/firstcoinstrategy/fcs1/</guid>

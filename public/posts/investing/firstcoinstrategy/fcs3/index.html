@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>코인2024[2] - 전략 성능 평가 및 응용 전략 개발 - 이투식</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo logo--mixed">
+		<a class="logo__link" href="/" title="이투식" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/leetusik_black.png">
+				</div><div class="logo__item logo__text">
+					<div class="logo__title">이투식</div>
+					<div class="logo__tagline">이런 투자 방식</div>
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menu</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/about/">
+				
+				<span class="menu__text">ABOUT</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">코인2024[2] - 전략 성능 평가 및 응용 전략 개발</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2024-09-09T14:39:39&#43;09:00">2024-09-09</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/investing/" rel="category">Investing</a>
+	</span>
+</div></div>
+		</header>
+		
+<div class="post__toc toc">
+	<div class="toc__title">Page content</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#자료-수집">자료 수집</a>
+      <ul>
+        <li><a href="#업비트-api-활용-가격-데이터-불러오기">업비트 api 활용 가격 데이터 불러오기</a></li>
+        <li><a href="#시가-종가-기준-정하기">시가 종가 기준 정하기</a></li>
+        <li><a href="#백테스트-기간-정하기">백테스트 기간 정하기</a></li>
+      </ul>
+    </li>
+    <li><a href="#전략-평가-도구">전략 평가 도구</a></li>
+    <li><a href="#전략-평가">전략 평가</a></li>
+    <li><a href="#추후-개선점">추후 개선점</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+	</div>
+</div><div class="content post__content clearfix">
+			<p>이번 글에서는 조사한 전략 성능 평가와 평가를 바탕으로 응용 전략을 개발한다.</p>
+<h2 id="자료-수집">자료 수집</h2>
+<h3 id="업비트-api-활용-가격-데이터-불러오기">업비트 api 활용 가격 데이터 불러오기</h3>
+<p>업비트 거래소의 api를 활용하여 코인 가격 데이터를 수집한다.</p>
+<p>아래의 get_candles 함수는 필요한 데이터의 시작 시점과 기타 필요한 인자를 입력하면 시작 시점부터 현재까지 가격 데이터를 불러온다. 업비트 api는 1회 요청당 200개를 초과하는 요청을 할 수 없고, 초당 30회 초과 요청을 할 수 없는 부분을 고려하여 코드를 작성했다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># handle_candle.py 중 일부</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_candles</span>(
+</span></span><span style="display:flex;"><span>    interval<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;minutes&#34;</span>,
+</span></span><span style="display:flex;"><span>    market<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;KRW-BTC&#34;</span>,
+</span></span><span style="display:flex;"><span>    count<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;200&#34;</span>,
+</span></span><span style="display:flex;"><span>    start<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2024-01-01 01:00:00&#34;</span>,
+</span></span><span style="display:flex;"><span>    interval2<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1&#34;</span>,
+</span></span><span style="display:flex;"><span>):
+</span></span><span style="display:flex;"><span>    times <span style="color:#f92672">=</span> get_time_intervals(
+</span></span><span style="display:flex;"><span>        initial_time_str<span style="color:#f92672">=</span>start,
+</span></span><span style="display:flex;"><span>        interval<span style="color:#f92672">=</span>interval,
+</span></span><span style="display:flex;"><span>        interval2<span style="color:#f92672">=</span>interval2,
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> len(times) <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Get the current time</span>
+</span></span><span style="display:flex;"><span>        current_time <span style="color:#f92672">=</span> str(datetime<span style="color:#f92672">.</span>now(timezone<span style="color:#f92672">.</span>utc))
+</span></span><span style="display:flex;"><span>        current_time <span style="color:#f92672">=</span> current_time<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;.&#34;</span>)[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>        current_time <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>strptime(current_time, <span style="color:#e6db74">&#34;%Y-%m-</span><span style="color:#e6db74">%d</span><span style="color:#e6db74"> %H:%M:%S&#34;</span>)
+</span></span><span style="display:flex;"><span>        start_time <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>strptime(start, <span style="color:#e6db74">&#34;%Y-%m-</span><span style="color:#e6db74">%d</span><span style="color:#e6db74"> %H:%M:%S&#34;</span>)
+</span></span><span style="display:flex;"><span>        start_time <span style="color:#f92672">=</span> start_time <span style="color:#f92672">-</span> timedelta(hours<span style="color:#f92672">=</span><span style="color:#ae81ff">9</span>)
+</span></span><span style="display:flex;"><span>        time_difference <span style="color:#f92672">=</span> current_time <span style="color:#f92672">-</span> start_time
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># print(time_difference)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Convert the time difference to total minutes</span>
+</span></span><span style="display:flex;"><span>        total_minutes <span style="color:#f92672">=</span> time_difference<span style="color:#f92672">.</span>total_seconds() <span style="color:#f92672">//</span> <span style="color:#ae81ff">3600</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        count <span style="color:#f92672">=</span> int(total_minutes)
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># print(count)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    lst <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    rate_limit_interval <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">20</span>  <span style="color:#75715e"># Time in seconds to wait between requests</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> t <span style="color:#f92672">in</span> times:
+</span></span><span style="display:flex;"><span>        url <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;https://api.upbit.com/v1/candles/</span><span style="color:#e6db74">{</span>interval<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">{</span>interval2<span style="color:#e6db74">}</span><span style="color:#e6db74">?market=</span><span style="color:#e6db74">{</span>market<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;count=</span><span style="color:#e6db74">{</span>count<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;to=</span><span style="color:#e6db74">{</span>t<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        headers <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;accept&#34;</span>: <span style="color:#e6db74">&#34;application/json&#34;</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        response <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(url, headers<span style="color:#f92672">=</span>headers)
+</span></span><span style="display:flex;"><span>        response <span style="color:#f92672">=</span> ast<span style="color:#f92672">.</span>literal_eval(response<span style="color:#f92672">.</span>text)
+</span></span><span style="display:flex;"><span>        lst <span style="color:#f92672">+=</span> response
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Wait to respect the rate limit</span>
+</span></span><span style="display:flex;"><span>        time<span style="color:#f92672">.</span>sleep(rate_limit_interval)
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># print(response, type(response))</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> type(response) <span style="color:#f92672">==</span> dict:
+</span></span><span style="display:flex;"><span>            print(response)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    lst <span style="color:#f92672">=</span> remove_duplicates(lst)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Sort the list of dictionaries by &#39;candle_date_time_utc&#39;</span>
+</span></span><span style="display:flex;"><span>    sorted_list <span style="color:#f92672">=</span> sorted(lst, key<span style="color:#f92672">=</span><span style="color:#66d9ef">lambda</span> x: x[<span style="color:#e6db74">&#34;candle_date_time_utc&#34;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(sorted_list)
+</span></span><span style="display:flex;"><span>    selected_columns <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;market&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;candle_date_time_kst&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;opening_price&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;high_price&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;low_price&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;trade_price&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;candle_acc_trade_price&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;candle_acc_trade_volume&#34;</span>,
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>    df_selected <span style="color:#f92672">=</span> df[selected_columns]<span style="color:#f92672">.</span>copy()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    df_selected<span style="color:#f92672">.</span>rename(
+</span></span><span style="display:flex;"><span>        columns<span style="color:#f92672">=</span>{
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;candle_date_time_kst&#34;</span>: <span style="color:#e6db74">&#34;time_kst&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;opening_price&#34;</span>: <span style="color:#e6db74">&#34;open&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;high_price&#34;</span>: <span style="color:#e6db74">&#34;high&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;low_price&#34;</span>: <span style="color:#e6db74">&#34;low&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;trade_price&#34;</span>: <span style="color:#e6db74">&#34;close&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;candle_acc_trade_price&#34;</span>: <span style="color:#e6db74">&#34;volume_krw&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;candle_acc_trade_volume&#34;</span>: <span style="color:#e6db74">&#34;volume_market&#34;</span>,
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        inplace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>,
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> df_selected
+</span></span></code></pre></div><hr>
+<h3 id="시가-종가-기준-정하기">시가 종가 기준 정하기</h3>
+<p>get_candles 함수를 통해 원하는 기간의 시간당 가격 데이터를 확보했다면, 그것을 하루 기준 데이터로 바꾸는 작업을 해야한다. 업비트 api를 통해 하루 기준 데이터를 곧바로 받을 수도 있지만, UTC 0시(9시) 기준으로 제공하기 때문에 다른 시간대에 대한 데이터를 구하기 어렵다. 더구나 9시 기준은 이미 많은 자동 매매 기계들이 기준으로 선정하고 정각 기준 매수, 매도 시에 슬리피지가 타 시간대에 비해 높을 것이라고 상정했다. 따라서 새로운 기준시를 설정해야했다.</p>
+<p>9시부터 3시. 거래 시간이 정해져있는 주식 시장과 달리 코인은 24/7 운영한다는 것이 특징이다. 따라서 시가, 종가를 구분하는데 주관이 들어갈 수밖에 없는데, 나는 거래량이 가장 적은 시간대를 기준으로 하루하루를 나누기로 했다. 거래량이 가장 낮을 때부터 가장 높은 때를 거쳐 다시 가장 낮은 때까지의 데이터가 하루의 가격을 가장 잘 표현할 것이라고 생각했기 때문이다. 주식을 생각하더라도 하루를 구분 하는 것은 거래량이 0인 시간들이다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Assuming your DataFrame is named df and the &#39;time_kst&#39; column is already in datetime format</span>
+</span></span><span style="display:flex;"><span>df[<span style="color:#e6db74">&#39;hour&#39;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;time_kst&#39;</span>]<span style="color:#f92672">.</span>dt<span style="color:#f92672">.</span>hour  <span style="color:#75715e"># Extract hour from time_kst</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Group by the &#39;hour&#39; column</span>
+</span></span><span style="display:flex;"><span>grouped_by_hour <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>groupby(<span style="color:#e6db74">&#39;hour&#39;</span>)<span style="color:#f92672">.</span>agg({
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;open&#39;</span>: <span style="color:#e6db74">&#39;mean&#39;</span>,        <span style="color:#75715e"># Example: Calculate the average &#39;open&#39; price per hour</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;close&#39;</span>: <span style="color:#e6db74">&#39;mean&#39;</span>,       <span style="color:#75715e"># Example: Calculate the average &#39;close&#39; price per hour</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;volume_market&#39;</span>: <span style="color:#e6db74">&#39;mean&#39;</span>    <span style="color:#75715e"># Example: Calculate the total volume per hour</span>
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Reset index if you want the hour to be a column again</span>
+</span></span><span style="display:flex;"><span>grouped_by_hour <span style="color:#f92672">=</span> grouped_by_hour<span style="color:#f92672">.</span>reset_index()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Display the result</span>
+</span></span><span style="display:flex;"><span>print(grouped_by_hour)
+</span></span></code></pre></div><p>위의 코드를 통해 아래의 결과를 얻었다.</p>
+<pre tabindex="0"><code class="language-output" data-lang="output">    hour          open         close  volume_market
+0      0  8.209518e+07  8.199403e+07     230.753713
+1      1  8.198445e+07  8.206782e+07     142.130093
+2      2  8.207024e+07  8.203003e+07     101.746834
+3      3  8.202853e+07  8.195905e+07      96.986020
+4      4  8.223710e+07  8.224954e+07      97.926199
+5      5  8.225085e+07  8.229677e+07     109.404200
+6      6  8.229964e+07  8.235667e+07     156.290143
+7      7  8.235418e+07  8.231408e+07     178.391202
+8      8  8.230631e+07  8.212413e+07     166.067811
+9      9  8.212238e+07  8.215585e+07     265.116783
+10    10  8.238482e+07  8.234353e+07     265.593120
+11    11  8.233866e+07  8.232726e+07     175.199980
+12    12  8.232679e+07  8.222097e+07     125.965980
+13    13  8.221874e+07  8.210666e+07     130.761464
+14    14  8.210850e+07  8.208426e+07     159.409739
+15    15  8.208653e+07  8.214166e+07     173.807352
+16    16  8.213476e+07  8.215863e+07     166.615198
+17    17  8.215642e+07  8.215600e+07     122.398108
+18    18  8.215797e+07  8.217637e+07     107.269996
+19    19  8.217379e+07  8.214097e+07     113.517471
+20    20  8.213921e+07  8.220413e+07     116.285750
+21    21  8.220008e+07  8.222984e+07     179.321342
+22    22  8.223139e+07  8.218176e+07     212.871202
+23    23  8.217453e+07  8.208797e+07     355.349909
+</code></pre><p>모든 시간대별 거래량의 통계를 낸 결과 새벽 3시~5시가 가장 거래량이 적고, 오후 11시가 가장 거래량이 높았다. 따라서 오전 4시를 기준으로 데이터를 정리했다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Step 1: Set the index to &#39;time_kst&#39;</span>
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>set_index(<span style="color:#e6db74">&#39;time_kst&#39;</span>, inplace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 2: Resample the data starting at 4:00 AM each day</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># This will give daily intervals starting from 4:00 AM</span>
+</span></span><span style="display:flex;"><span>daily_df <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>resample(<span style="color:#e6db74">&#39;24H&#39;</span>, offset<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;4H&#39;</span>, origin<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;epoch&#39;</span>)<span style="color:#f92672">.</span>agg({
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;open&#39;</span>: <span style="color:#e6db74">&#39;first&#39;</span>,           <span style="color:#75715e"># Open price at 4:00 AM</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;high&#39;</span>: <span style="color:#e6db74">&#39;max&#39;</span>,             <span style="color:#75715e"># Highest price in the interval</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;low&#39;</span>: <span style="color:#e6db74">&#39;min&#39;</span>,              <span style="color:#75715e"># Lowest price in the interval</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;close&#39;</span>: <span style="color:#e6db74">&#39;last&#39;</span>,           <span style="color:#75715e"># Close price at 4:00 AM next day</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;volume_krw&#39;</span>: <span style="color:#e6db74">&#39;sum&#39;</span>,       <span style="color:#75715e"># Total volume in the interval</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;volume_market&#39;</span>: <span style="color:#e6db74">&#39;sum&#39;</span>     <span style="color:#75715e"># Total market volume in the interval</span>
+</span></span><span style="display:flex;"><span>})<span style="color:#f92672">.</span>reset_index()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 3: Rename the time column</span>
+</span></span><span style="display:flex;"><span>daily_df<span style="color:#f92672">.</span>rename(columns<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;time_kst&#39;</span>: <span style="color:#e6db74">&#39;day_starting_at_4am&#39;</span>}, inplace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Display the result</span>
+</span></span><span style="display:flex;"><span>print(daily_df)
+</span></span></code></pre></div><pre tabindex="0"><code class="language-output" data-lang="output">   day_starting_at_4am        open        high         low       close  \
+0  2024-08-01 04:00:00  92986000.0  93101000.0  88001000.0  88779000.0
+1  2024-08-02 04:00:00  88751000.0  92300000.0  88320000.0  88710000.0
+2  2024-08-03 04:00:00  88737000.0  89170000.0  85158000.0  85160000.0
+3  2024-08-04 04:00:00  85181000.0  86311000.0  81756000.0  83292000.0
+4  2024-08-05 04:00:00  83292000.0  84333000.0  72100000.0  76349000.0
+5  2024-08-06 04:00:00  76349000.0  82150000.0  75777000.0  80687000.0
+6  2024-08-07 04:00:00  80687000.0  81950000.0  78260000.0  78410000.0
+7  2024-08-08 04:00:00  78411000.0  84071000.0  77782000.0  83332000.0
+8  2024-08-09 04:00:00  83332000.0  87980000.0  83236000.0  84889000.0
+9  2024-08-10 04:00:00  84850000.0  86370000.0  84512000.0  85650000.0
+10 2024-08-11 04:00:00  85650000.0  86424000.0  84150000.0  84657000.0
+...
+</code></pre><p>거래량이 가장 적은 시간대를 24시간 운영하는 시장의 하루하루를 구분하는 기준으로 사용한다는 점에서 논리는 나쁘지 않다고 보인다. 하지만 투자 전략 상 기준 시간대에 거래를 많이 해야하는 것을 고려했을 때, 오히려 거래량이 가장 많은 시간대를 기준으로 하는 것이 거래 비용을 감소시킬 수도 있겠다는 여지가 있다. 이는 추후에 연구해 보겠다.</p>
+<hr>
+<h3 id="백테스트-기간-정하기">백테스트 기간 정하기</h3>
+<p>백테스트 기간에 따라 투자 전략의 성능이 천차만별이므로 기간을 설정하는 것은 매우 중요하다. 이번 연구에서는 비트코인이 개발되고 가격이 상승만 하다가 처음 대하락장을 경험하기 직전인 2021년 4월부터 현 시점인 2024년 8월까지로 설정했다. 그 이후의 가격 패턴이 하락장, 횡보장, 상승장의 성격을 가진 구간이 모두 잘 나타나기 때문이다.</p>
+<div style="text-align: center">
+  <img src="chart.png" alt="비트코인 가격 데이터" style="max-width: 100%;
+  height: auto;">
+  <div style="font-size: 0.9em; color: gray">비트코인 가격 데이터</div>
+  <br />
+</div>
+
+<hr>
+<h2 id="전략-평가-도구">전략 평가 도구</h2>
+<p>본격적인 전략 평가에 앞서 전략들을 일률적으로 평가하기 위한 평가 도구를 소개한다.</p>
+<p>우선 평가 지표는 다음과 같다.</p>
+<ol>
+<li>연평균수익률(CAGR)</li>
+<li>최대 손실률(MDD)</li>
+<li>총 투자 기간(첫 번째 매수 시점으로부터)</li>
+</ol>
+<p>각기 다른 데이터셋에 대해 위의 성능 지표들을 확인하기 위해 아래와 같은 get_performance 함수를 작성하였다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># performance.py 중 일부</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_performance</span>(df, title, add_to_excel<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>, file_path<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># get total return</span>
+</span></span><span style="display:flex;"><span>    initial_value <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#34;cumulative_returns&#34;</span>]<span style="color:#f92672">.</span>iloc[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>    final_value <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#34;cumulative_returns&#34;</span>]<span style="color:#f92672">.</span>iloc[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>    tr <span style="color:#f92672">=</span> get_total_return(
+</span></span><span style="display:flex;"><span>        inital_value<span style="color:#f92672">=</span>initial_value,
+</span></span><span style="display:flex;"><span>        final_value<span style="color:#f92672">=</span>final_value,
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># # get cagr</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># days = len(df)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Calculate the number of days from the first signal to the last day in the DataFrame</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Find the first day where a position is taken (signal == 1)</span>
+</span></span><span style="display:flex;"><span>    first_signal_day <span style="color:#f92672">=</span> df[df[<span style="color:#e6db74">&#34;signal&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>index[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Calculate the number of days from the first signal to the last day in the DataFrame</span>
+</span></span><span style="display:flex;"><span>    days <span style="color:#f92672">=</span> len(df) <span style="color:#f92672">-</span> first_signal_day
+</span></span><span style="display:flex;"><span>    cagr <span style="color:#f92672">=</span> get_cagr(
+</span></span><span style="display:flex;"><span>        total_return<span style="color:#f92672">=</span>tr,
+</span></span><span style="display:flex;"><span>        days<span style="color:#f92672">=</span>days,
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># print(len(df), first_signal_day, days)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># get mdd</span>
+</span></span><span style="display:flex;"><span>    balance <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#34;cumulative_returns&#34;</span>]
+</span></span><span style="display:flex;"><span>    mdd <span style="color:#f92672">=</span> get_mdd(balance)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        initial_value2 <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#34;cumulative_returns2&#34;</span>]<span style="color:#f92672">.</span>iloc[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>        final_value2 <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#34;cumulative_returns2&#34;</span>]<span style="color:#f92672">.</span>iloc[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>        tr2 <span style="color:#f92672">=</span> get_total_return(
+</span></span><span style="display:flex;"><span>            inital_value<span style="color:#f92672">=</span>initial_value2,
+</span></span><span style="display:flex;"><span>            final_value<span style="color:#f92672">=</span>final_value2,
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        cagr2 <span style="color:#f92672">=</span> get_cagr(
+</span></span><span style="display:flex;"><span>            total_return<span style="color:#f92672">=</span>tr2,
+</span></span><span style="display:flex;"><span>            days<span style="color:#f92672">=</span>days,
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        balance2 <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#34;cumulative_returns2&#34;</span>]
+</span></span><span style="display:flex;"><span>        mdd2 <span style="color:#f92672">=</span> get_mdd(balance2)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        print_things(
+</span></span><span style="display:flex;"><span>            strategy<span style="color:#f92672">=</span>title,
+</span></span><span style="display:flex;"><span>            total_return<span style="color:#f92672">=</span>tr,
+</span></span><span style="display:flex;"><span>            cagr<span style="color:#f92672">=</span>cagr,
+</span></span><span style="display:flex;"><span>            mdd<span style="color:#f92672">=</span>mdd,
+</span></span><span style="display:flex;"><span>            total_return_w_fee<span style="color:#f92672">=</span>tr2,
+</span></span><span style="display:flex;"><span>            cagr_w_fee<span style="color:#f92672">=</span>cagr2,
+</span></span><span style="display:flex;"><span>            mdd_w_fee<span style="color:#f92672">=</span>mdd2,
+</span></span><span style="display:flex;"><span>            investing_days<span style="color:#f92672">=</span>days,
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> add_to_excel:
+</span></span><span style="display:flex;"><span>            new_data <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;strategy_name&#34;</span>: title,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;cagr&#34;</span>: get_rounded(cagr2),
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;mdd&#34;</span>: get_rounded(mdd2),
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;investing_days&#34;</span>: days,
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            add_row_to_excel(file_path<span style="color:#f92672">=</span>file_path, new_data<span style="color:#f92672">=</span>new_data)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span>:
+</span></span><span style="display:flex;"><span>        print_things(
+</span></span><span style="display:flex;"><span>            strategy<span style="color:#f92672">=</span>title,
+</span></span><span style="display:flex;"><span>            total_return<span style="color:#f92672">=</span>tr,
+</span></span><span style="display:flex;"><span>            cagr<span style="color:#f92672">=</span>cagr,
+</span></span><span style="display:flex;"><span>            mdd<span style="color:#f92672">=</span>mdd,
+</span></span><span style="display:flex;"><span>            investing_days<span style="color:#f92672">=</span>days,
+</span></span><span style="display:flex;"><span>        )
+</span></span></code></pre></div><p>투자 시작 시점이 아니라 매수 시작 시점부터 계산하기 때문에 CAGR이 높게 나올 수는 있지만, 전체 데이터 길이를 기준으로 판단했을 때, 이동평균선 180일과 같은 오랜 시간이 지난 후에야 시작되는 전략과 이동평균선 5일과 같은 곧바로 시작할 수 있는 전략 간의 실질 투자 시간이 차이나기 때문에 매수 시점을 기준으로 투자 일수를 정했다. 추후에는 200일 이상 버퍼 데이터를 확보하고, 백테스트를 실행해야겠다.</p>
+<h2 id="전략-평가">전략 평가</h2>
+<p>벤치마크인 매수 후 보유 전략의 성능은 다음과 같다.</p>
+<p>Strategy : Buy&amp;Hold</p>
+<p>total_return : 15.71</p>
+<p>cagr : 4.4</p>
+<p>mdd : 74.23</p>
+<p>그리고 다양한 전략들의 성과는 다음과 같다.</p>
+<p><div style="text-align: center">
+  <img src="results2-1.jpg" alt="성능 평가 결과 1" style="max-width: 100%;
+  height: auto;">
+  <div style="font-size: 0.9em; color: gray">성능 평가 결과 1</div>
+  <br />
+</div>
+
+<div style="text-align: center">
+  <img src="results2-2.jpg" alt="성능 평가 결과 2" style="max-width: 100%;
+  height: auto;">
+  <div style="font-size: 0.9em; color: gray">성능 평가 결과 2</div>
+  <br />
+</div>
+
+<div style="text-align: center">
+  <img src="results2-4.png" alt="성능 평가 결과 3" style="max-width: 100%;
+  height: auto;">
+  <div style="font-size: 0.9em; color: gray">성능 평가 결과 3</div>
+  <br />
+</div>
+</p>
+<p>자동 매매에서 변동성돌파전략(Volatility Breakout)을 많이 활용하는 가운데, 의외로 성과 지표가 좋지 않고, 이동평균선이나, 모멘텀을 결합한 전략들에서 그 성능을 보여준다.
+또 가장 간단한 이동평균선이나 모멘텀 전략이 높은 성능을 발휘하는 것으로 보이는 와중에, rsi에 최고가 대비 스탑 로스 5%를 포함하는 전략이 잘 작동하는 것을 볼 수 있다.</p>
+<p>이후 추가적인 백테스트에서 rsi 전략은 일정 수준 이상 하락한 이후에 반등하는 것을 노리는 전략으로, 이동평균선이나 모멘텀 전략과 결합했을 때 시너지 효과가 잘 나지 않는 것을 확인했다. 이는 좋은 가격 모멘텀을 가질 때 매수에 진입하는 이동평균선과 모멘텀 전략과 조합이 좋지 않기 때문인 것으로 보인다. 정리해서 말하자면 rsi는 하락장에서 상승장으로 돌입할 때, 이동평균선은 상승 또는 횡보 장에서 더 큰 상승장으로 돌입할 때 매수 진입하므로 코인 투자금 둘 이상으로 분리해 병렬로 전략들을 사용하면 상관관계가 조금이나마 떨어지는 효과를 얻을 수 있을 것으로 보인다.</p>
+<h2 id="추후-개선점">추후 개선점</h2>
+<ol>
+<li>오히려 거래량이 가장 많은 시간대를 기준으로 하는 것이 거래 비용을 감소시킬 수도 있겠다는 여지가 있다.</li>
+<li>추후에는 200일 이상 버퍼 데이터를 확보하고, 백테스트를 실행해야겠다.</li>
+</ol>
+<h4 id="같은-주제-게시글-모음">같은 주제 게시글 모음</h4>
+ 
+<ul>
+  
+  <li><a href="/posts/investing/firstcoinstrategy/fcs3/">코인2024[2] - 전략 성능 평가 및 응용 전략 개발</a></li>
+  
+  <li><a href="/posts/investing/firstcoinstrategy/fcs2/">코인2024[1] - 선행 연구 리서치</a></li>
+  
+  <li><a href="/posts/investing/firstcoinstrategy/fcs1/">코인2024[0] - 프로젝트 구조 설계</a></li>
+  
+</ul>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/coin2024/" rel="tag">coin2024</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/coin/" rel="tag">coin</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/investing/" rel="tag">investing</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/research/" rel="tag">research</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="이투식 avatar" src="/img/leetusik_black.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">About 이투식</span>
+	</div>
+	<div class="authorbox__description">
+		이런 투자 방식, 이투식입니다.
+	</div>
+</div>
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/posts/investing/firstcoinstrategy/fcs2/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">코인2024[1] - 선행 연구 리서치</p>
+		</a>
+	</div>
+</nav>
+
+
+			</div>
+			<aside class="sidebar">
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/posts/investing/firstcoinstrategy/fcs3/">코인2024[2] - 전략 성능 평가 및 응용 전략 개발</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/investing/firstcoinstrategy/fcs2/">코인2024[1] - 선행 연구 리서치</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/investing/firstcoinstrategy/fcs1/">코인2024[0] - 프로젝트 구조 설계</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/services/coupangman/coupangman4/">coupang TV[3] - 서버</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/services/coupangman/coupangman3/">coupang TV[2] - 프론트엔드</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/investing/">Investing</a>&nbsp;
+				<span class="widget__counter widget__counter--bubble">3</span>
+				</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/services/">Services</a>&nbsp;
+				<span class="widget__counter widget__counter--bubble">4</span>
+				</li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/backend/" title="Backend">Backend</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/coin/" title="Coin">Coin</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/coin2024/" title="Coin2024">Coin2024</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/coupang-tv/" title="Coupang Tv">Coupang Tv</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/docker/" title="Docker">Docker</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/flask/" title="Flask">Flask</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/frontend/" title="Frontend">Frontend</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/indie-hacker/" title="Indie Hacker">Indie Hacker</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/investing/" title="Investing">Investing</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/javascript/" title="Javascript">Javascript</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/jinja2/" title="Jinja2">Jinja2</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/python/" title="Python">Python</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/research/" title="Research">Research</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/server/" title="Server">Server</a>
+	</div>
+</div>
+<div class="widget-social widget">
+	<h4 class="widget-social__title widget__title">Social</h4>
+	<div class="widget-social__content widget__content">
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="Instagram" rel="noopener noreferrer" href="https://www.instagram.com/leetusik" target="_blank">
+				<svg class="widget-social__link-icon icon icon-instagram" width="24" height="24" viewBox="0 0 256 256"><circle cx="193" cy="59" r="15"/><path fill-rule="evenodd" d="M101 0h54c41 0 58.4 3.9 74.5 17C256.2 37.5 256 74.8 256 97.7v60c0 26.7 0 60.4-26.5 81.4-16 13.4-33.5 16.9-74.5 16.9h-54c-41 0-57.5-3.5-74.5-16.9C1 218.9.5 186.3.1 160.5L0 155V97.7c0-23-.2-60.2 26.5-80.7C45 2 60 0 101 0zm4.9 23h44.3c45.8 0 58.3 3.5 70.3 17.5 11.8 13.2 12 30.1 12.5 62.9V156c.2 20.8.3 45.8-12.5 59.5-12 14-24.5 17.5-70.3 17.5h-44.3c-45.9 0-57.3-3.5-70.4-17.5-12.2-13-12.3-36.5-12.4-56.7v-55.6c.4-32.6.7-49.6 12.4-62.7C48 26.5 60 23 105.9 23zm19.6 144.5a42 42 0 1 0 0-84 42 42 0 0 0 0 84zm0 22.5a64.5 64.5 0 1 0 0-129 64.5 64.5 0 0 0 0 129z"/></svg>
+				<span>Instagram</span>
+			</a>
+		</div>
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="GitHub" rel="noopener noreferrer" href="https://github.com/leetusik" target="_blank">
+				<svg class="widget-social__link-icon icon icon-github" width="24" height="24" viewBox="0 0 384 374"><path d="m192 0c-106.1 0-192 85.8-192 191.7 0 84.7 55 156.6 131.3 181.9 9.6 1.8 13.1-4.2 13.1-9.2 0-4.6-.2-16.6-.3-32.6-53.4 11.6-64.7-25.7-64.7-25.7-8.7-22.1-21.3-28-21.3-28-17.4-11.9 1.3-11.6 1.3-11.6 19.3 1.4 29.4 19.8 29.4 19.8 17.1 29.3 44.9 20.8 55.9 15.9 1.7-12.4 6.7-20.8 12.2-25.6-42.6-4.8-87.5-21.3-87.5-94.8 0-20.9 7.5-38 19.8-51.4-2-4.9-8.6-24.3 1.9-50.7 0 0 16.1-5.2 52.8 19.7 15.3-4.2 31.7-6.4 48.1-6.5 16.3.1 32.7 2.2 48.1 6.5 36.7-24.8 52.8-19.7 52.8-19.7 10.5 26.4 3.9 45.9 1.9 50.7 12.3 13.4 19.7 30.5 19.7 51.4 0 73.7-44.9 89.9-87.7 94.6 6.9 5.9 13 17.6 13 35.5 0 25.6-.2 46.3-.2 52.6 0 5.1 3.5 11.1 13.2 9.2 76.2-25.5 131.2-97.3 131.2-182 0-105.9-86-191.7-192-191.7z"/></svg>
+				<span>GitHub</span>
+			</a>
+		</div>
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="Email" href="mailto:leetusik@gmail.com">
+				<svg class="widget-social__link-icon icon icon-mail" width="24" height="24" viewBox="0 0 24 24"><path d="M0 3h24v18H0zm2 16h20V7l-10 6L2 7zM22 5H2l10 6z"/></svg>
+				<span>leetusik@gmail.com</span>
+			</a>
+		</div>
+
+		
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2024 이투식.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>

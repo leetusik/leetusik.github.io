@@ -1,5 +1,5 @@
 +++
-title = 'coupang TV[3] - 프론트엔드'
+title = 'coupang TV[2] - 프론트엔드'
 date = 2024-08-08T11:07:37+09:00
 categories = ["services"]
 tags = ["flask", "coupang tv", "frontend", "javascript", "jinja2"]

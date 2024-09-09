@@ -1,5 +1,5 @@
 +++
-title = 'coupang TV[2] - 백엔드'
+title = 'coupang TV[1] - 백엔드'
 date = 2024-08-07T06:51:55+09:00
 categories = ["services"]
 tags = ["flask", "coupang tv", "backend", "python"]

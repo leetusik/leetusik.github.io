@@ -1,5 +1,5 @@
 +++
-title = '코인2024[2] - 선행 연구 리서치'
+title = '코인2024[1] - 선행 연구 리서치'
 date = 2024-09-09T13:29:53+09:00
 categories = ["investing"]
 tags = ["coin2024", "coin", "investing", "research"]

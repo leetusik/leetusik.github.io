@@ -1,5 +1,5 @@
 +++
-title = 'coupang TV[4] - 서버'
+title = 'coupang TV[3] - 서버'
 date = 2024-08-08T17:50:44+09:00
 categories = ["services"]
 tags = ["coupang tv", "linux", "server", "docker"]

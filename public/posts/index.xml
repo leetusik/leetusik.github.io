@@ -6,45 +6,52 @@
     <description>Recent content in Posts on 이투식</description>
     <generator>Hugo</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Mon, 09 Sep 2024 13:29:53 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 09 Sep 2024 14:39:39 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>코인2024[2] - 선행 연구 리서치</title>
+      <title>코인2024[2] - 전략 성능 평가 및 응용 전략 개발</title>
+      <link>http://localhost:1313/posts/investing/firstcoinstrategy/fcs3/</link>
+      <pubDate>Mon, 09 Sep 2024 14:39:39 +0900</pubDate>
+      <guid>http://localhost:1313/posts/investing/firstcoinstrategy/fcs3/</guid>
+      <description>&lt;p&gt;이번 글에서는 조사한 전략 성능 평가와 평가를 바탕으로 응용 전략을 개발한다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>코인2024[1] - 선행 연구 리서치</title>
       <link>http://localhost:1313/posts/investing/firstcoinstrategy/fcs2/</link>
       <pubDate>Mon, 09 Sep 2024 13:29:53 +0900</pubDate>
       <guid>http://localhost:1313/posts/investing/firstcoinstrategy/fcs2/</guid>
       <description>&lt;p&gt;코인 투자 선행 연구들을 찾아본다.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>코인2024[1] - 프로젝트 구조 설계</title>
+      <title>코인2024[0] - 프로젝트 구조 설계</title>
       <link>http://localhost:1313/posts/investing/firstcoinstrategy/fcs1/</link>
       <pubDate>Mon, 09 Sep 2024 00:00:00 +0900</pubDate>
       <guid>http://localhost:1313/posts/investing/firstcoinstrategy/fcs1/</guid>
       <description>&lt;p&gt;코인 투자 전략 개발을 위한 프로젝트 구조를 설계한다.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>coupang TV[4] - 서버</title>
+      <title>coupang TV[3] - 서버</title>
       <link>http://localhost:1313/posts/services/coupangman/coupangman4/</link>
       <pubDate>Thu, 08 Aug 2024 17:50:44 +0900</pubDate>
       <guid>http://localhost:1313/posts/services/coupangman/coupangman4/</guid>
       <description>&lt;p&gt;이번 글에서는 꿀매(쿠팡tv) 프로젝트를 배포하기위해 집 노트북 서버를 어떻게 구축했는지 소개한다. 자주 사용하지 않는 lenovo ideapad 제품을 사용했고, OS는 Fedora Linux 40를 사용했다.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>coupang TV[3] - 프론트엔드</title>
+      <title>coupang TV[2] - 프론트엔드</title>
       <link>http://localhost:1313/posts/services/coupangman/coupangman3/</link>
       <pubDate>Thu, 08 Aug 2024 11:07:37 +0900</pubDate>
       <guid>http://localhost:1313/posts/services/coupangman/coupangman3/</guid>
       <description>&lt;p&gt;이번 글에서는 프로젝트 프론트엔드 부분을 소개한다. html, css, js, 그리고 css 프레임워크로 pico css를 사용한다. 또한 flask application이기 때문에 jinja2를 활용한다.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>coupang TV[2] - 백엔드</title>
+      <title>coupang TV[1] - 백엔드</title>
       <link>http://localhost:1313/posts/services/coupangman/coupangman2/</link>
       <pubDate>Wed, 07 Aug 2024 06:51:55 +0900</pubDate>
       <guid>http://localhost:1313/posts/services/coupangman/coupangman2/</guid>
       <description>&lt;p&gt;이번 글에서는 프로젝트 백엔드 부분을 소개한다. 스크래핑 기능, 데이터베이스 모델을 중점적으로 다룬다.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>coupang TV[1] - 프로젝트 구조 설계</title>
+      <title>coupang TV[0] - 프로젝트 구조 설계</title>
       <link>http://localhost:1313/posts/services/coupangman/coupangman1/</link>
       <pubDate>Wed, 07 Aug 2024 05:31:40 +0900</pubDate>
       <guid>http://localhost:1313/posts/services/coupangman/coupangman1/</guid>
