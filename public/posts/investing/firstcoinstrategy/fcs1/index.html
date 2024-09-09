@@ -3,7 +3,7 @@
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Coin - 이투식</title>
+	<title>코인2024[1] - 프로젝트 구조 설계 - 이투식</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,6 @@
 
 	<link rel="stylesheet" href="/css/style.css">
 	
-	<link rel="alternate" type="application/rss+xml" href="/tags/coin/index.xml" title="이투식">
 
 	<link rel="shortcut icon" href="/favicon.ico">
 </head>
@@ -53,50 +52,94 @@
 		<div class="wrapper flex">
 			<div class="primary">
 			
-<main class="main list" role="main">
-	<header class="main__header">
-		<h1 class="main__title">Coin</h1>
-	</header><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/investing/firstcoinstrategy/fcs2/" rel="bookmark">
-			코인2024[2] - 선행 연구 리서치
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2024-09-09T13:29:53&#43;09:00">2024-09-09</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/investing/" rel="category">Investing</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>코인 투자 선행 연구들을 찾아본다.</p>
-	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/investing/firstcoinstrategy/fcs1/" rel="bookmark">
-			코인2024[1] - 프로젝트 구조 설계
-			</a>
-		</h2>
-		<div class="list__meta meta">
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">코인2024[1] - 프로젝트 구조 설계</h1>
+			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2024-09-09T00:00:00&#43;09:00">2024-09-09</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/investing/" rel="category">Investing</a>
 	</span>
 </div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>코인 투자 전략 개발을 위한 프로젝트 구조를 설계한다.</p>
-	</div>
-</article>
+		</header>
+		<div class="content post__content clearfix">
+			<p>코인 투자 전략 개발을 위한 프로젝트 구조를 설계한다.</p>
+<h2 id="프로젝트-목적">프로젝트 목적</h2>
+<p>코인2024 프로젝트의 목적은 성능 좋은 코인 자동 매매 기계를 만드는 것이다. 만들어진 코인 투자 기계는 주식, 채권 등 전통적인 금융자산을 포함하는 포트폴리오 내에서 10% 이하의 비중을 가지게 될 것이다. 변동성이 큰 만큼 적은 비율을 차지하지만, 그만큼 높은 수익을 목표한다.</p>
+<p>추후에는 하락장에서도 수익을 창출할 수 있는 선물 상품을 활용한 전략이나, 시장의 비효율성을 이용한 차익거래 전략 역시 개발할 의사가 있으나, 이번 프로젝트에서는 우선 현물 시장(업비트)에서 잘 작동하는 전략을 개발하고, 기계를 만드는 것을 목표로 한다. 그 중에서도 비트코인 시장에서 잘 작동하는 전략을 개발하는 것을 우선으로 한다.</p>
+<h2 id="프로젝트-구현">프로젝트 구현</h2>
+<p>코인2024 프로젝트 진행은 크게 3가지 부분으로 나뉜다.</p>
+<ol>
+<li>선행 연구 리서치</li>
+<li>전략 성능 평가 및 응용 전략 개발</li>
+<li>자동 투자 기계 개발</li>
+</ol>
+<p>먼저 기존의 코인 투자 연구들을 분석해서 쓸만한 전략이나 기법을 추출한다. 연구 출처는 논문 뿐만 아니라 유튜브, 블로그 등의 매체들도 포함한다.</p>
+<p>수집한 전략들의 성능을 직접 실제 코인 가격 데이터를 활용해 백테스트한다. 쓸만한 전략을 골라내고 선정된 전략들을 바탕으로 업그레이드된 전략을 개발한다.</p>
+<p>마지막으로 선정된 전략들을 활용할 수 있는 기계를 만든다. 투자 기능 뿐만 아니라 대시보드 등 사용자가 편하게 제어할 수 있는 편의 기능도 만들 생각이다. 플라스크를 활용해 웹을 기반으로 개발할 것이고, 배포하지는 않고 로컬 환경에서 사용한다.</p>
+<h4 id="같은-주제-게시글-모음">같은 주제 게시글 모음</h4>
+ 
+<ul>
+  
+  <li><a href="/posts/investing/firstcoinstrategy/fcs2/">코인2024[2] - 선행 연구 리서치</a></li>
+  
+  <li><a href="/posts/investing/firstcoinstrategy/fcs1/">코인2024[1] - 프로젝트 구조 설계</a></li>
+  
+</ul>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/coin2024/" rel="tag">coin2024</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/coin/" rel="tag">coin</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/investing/" rel="tag">investing</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/research/" rel="tag">research</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
 </main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="이투식 avatar" src="/img/leetusik_black.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">About 이투식</span>
+	</div>
+	<div class="authorbox__description">
+		이런 투자 방식, 이투식입니다.
+	</div>
+</div>
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/posts/services/coupangman/coupangman4/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">coupang TV[4] - 서버</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/posts/investing/firstcoinstrategy/fcs2/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">코인2024[2] - 선행 연구 리서치</p>
+		</a>
+	</div>
+</nav>
 
 
 			</div>
-			
-<aside class="sidebar">
+			<aside class="sidebar">
 <div class="widget-recent widget">
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
@@ -182,5 +225,7 @@
 </footer>
 	</div>
 <script async defer src="/js/menu.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
 </body>
 </html>

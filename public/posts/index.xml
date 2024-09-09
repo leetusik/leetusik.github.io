@@ -6,14 +6,21 @@
     <description>Recent content in Posts on 이투식</description>
     <generator>Hugo</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Mon, 12 Aug 2024 16:58:42 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 09 Sep 2024 13:29:53 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>2024 코인 투자전략[1] - 자료조사</title>
-      <link>http://localhost:1313/posts/investing/firstcoinstartegy/fcs1/</link>
-      <pubDate>Mon, 12 Aug 2024 16:58:42 +0900</pubDate>
-      <guid>http://localhost:1313/posts/investing/firstcoinstartegy/fcs1/</guid>
-      <description>&lt;p&gt;2024 코인 투자전략을 수립하기 위해 조사한 자료를 소개한다.&lt;/p&gt;</description>
+      <title>코인2024[2] - 선행 연구 리서치</title>
+      <link>http://localhost:1313/posts/investing/firstcoinstrategy/fcs2/</link>
+      <pubDate>Mon, 09 Sep 2024 13:29:53 +0900</pubDate>
+      <guid>http://localhost:1313/posts/investing/firstcoinstrategy/fcs2/</guid>
+      <description>&lt;p&gt;코인 투자 선행 연구들을 찾아본다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>코인2024[1] - 프로젝트 구조 설계</title>
+      <link>http://localhost:1313/posts/investing/firstcoinstrategy/fcs1/</link>
+      <pubDate>Mon, 09 Sep 2024 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/posts/investing/firstcoinstrategy/fcs1/</guid>
+      <description>&lt;p&gt;코인 투자 전략 개발을 위한 프로젝트 구조를 설계한다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>coupang TV[4] - 서버</title>
